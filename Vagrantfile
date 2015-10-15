@@ -27,6 +27,7 @@ Vagrant.configure(2) do |config|
 
   # Because of $reasons we share the containerSetup folder.
   config.vm.synced_folder ".", "/containerSetup"
+  config.vm.synced_folder "../website", "/usr/share/nginx/html"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
