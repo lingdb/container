@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
 
   # Because of $reasons we share the containerSetup folder.
   config.vm.synced_folder ".", "/containerSetup"
-  config.vm.synced_folder "../website", "/usr/share/nginx/html"
+  # config.vm.synced_folder "../website", "/usr/share/nginx/html"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -44,29 +44,6 @@ Vagrant.configure(2) do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
-  # For better db password than '1234' see [1].
-  # For details on hhvm setup see [2].
-  # [1]: https://github.com/Lukx/vagrant-lamp/blob/master/components/mariadb.sh
-  # [2]: https://vexxhost.com/resources/tutorials/how-to-setup-hhvm-on-ubuntu-14-04/
-  config.vm.provision "shell", inline: <<-SHELL
-     echo "Installing mysql-server:"
-     export DEBIAN_FRONTEND=noninteractive
-     debconf-set-selections <<< 'mariadb-server-5.5 mysql-server/root_password password 1234'
-     debconf-set-selections <<< 'mariadb-server-5.5 mysql-server/root_password_again password 1234'
-     apt-get install -y mariadb-server
-     service mysql start
-     echo "CREATE DATABASE IF NOT EXISTS v4 CHARACTER SET utf8;"|mysql -uroot -p1234
-     echo "FIXME REMEMBER DATABASE SETUP!"
-     echo "Installing nginx:"
-     apt-get install -y nginx
-     echo "Installing hhvm:"
-     apt-get install -y software-properties-common
-     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449
-     add-apt-repository "deb http://dl.hhvm.com/ubuntu $(lsb_release -sc) main"
-     apt-get update
-     apt-get install -y hhvm
-     /usr/share/hhvm/install_fastcgi.sh
-     service hhvm restart
-     service nginx restart
-  SHELL
+  # Provision using install.sh
+  config.vm.provision "shell", path: "install.sh"
 end
