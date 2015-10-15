@@ -9,7 +9,9 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  config.vm.box = "ubuntu/trusty64"
+  # Fetch box from https://atlas.hashicorp.com/ubuntu/boxes/vivid64
+  # Using vivid64 instead of trusty to have systemd
+  config.vm.box = "ubuntu/vivid64"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
