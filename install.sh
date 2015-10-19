@@ -45,3 +45,6 @@ echo "Performing flask setup:"
 apt-get install -y virtualenv python-pip build-essential python-dev libmysqlclient-dev
 make -C /containerSetup/website install
 # Install and start serviceMagic for flask: FIXME
+cp /containerSetup/flask/flask.service /etc/systemd/system
+systemctl enable flask.service
+systemctl start flask.service

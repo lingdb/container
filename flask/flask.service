@@ -1,0 +1,14 @@
+[Unit]
+Description=Run '/containerSetup/website/make main'.
+Requires=mysql.service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/make -C /containerSetup/website main
+User=vagrant
+Group=systemd-journal
+Restart=always
+RestartSec=30
