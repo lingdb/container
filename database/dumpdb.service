@@ -4,5 +4,5 @@ Description=Run /containerSetup/database/dumpdb.sh a single time.
 [Service]
 Type=oneshot
 ExecStart=/containerSetup/database/dumpdb.sh
-User=vagrant
+User=root
 Group=systemd-journal
