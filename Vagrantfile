@@ -6,6 +6,13 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
+  # Custom code the check for database files:
+  ["create.sql","dump.sql"].each{|name|
+    path = "database/"+name
+    if !File.exist?(path)
+      raise LoadError.new("Necessary file not found: "+path)
+    end
+  }
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
