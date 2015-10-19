@@ -10,9 +10,9 @@ apt-get install -y mariadb-server
 service mysql start
 echo "CREATE DATABASE IF NOT EXISTS v4 CHARACTER SET utf8;"|mysql -uroot -p1234
 echo "Creating v4 tables:"
-mysql -urppt -p1234 v4 < /containerSetup/database/create.sql
+mysql -uroot -p1234 v4 < /containerSetup/database/create.sql
 echo "Inserting v4 dump:"
-mysql -urppt -p1234 v4 < /containerSetup/database/dump.sql
+mysql -uroot -p1234 v4 < /containerSetup/database/dump.sql
 # Install dumpdb stuff:
 echo "Installing dumpdb.{service,timer}:"
 apt-get install -y mariadb-client
