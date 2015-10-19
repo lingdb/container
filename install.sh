@@ -7,7 +7,8 @@ export DEBIAN_FRONTEND=noninteractive
 debconf-set-selections <<< 'mariadb-server-5.5 mysql-server/root_password password 1234'
 debconf-set-selections <<< 'mariadb-server-5.5 mysql-server/root_password_again password 1234'
 apt-get install -y mariadb-server
-service mysql start
+systemctl enable mysql
+systemctl start mysql
 echo "CREATE DATABASE IF NOT EXISTS v4 CHARACTER SET utf8;"|mysql -uroot -p1234
 echo "Creating v4 tables:"
 mysql -uroot -p1234 v4 < /containerSetup/database/create.sql
@@ -22,4 +23,10 @@ systemctl start dumpdb.timer
 # Setup for nginx:
 echo "Installing nginx:"
 apt-get install -y nginx
-service nginx restart
+systemctl enable nginx
+systemctl stop nginx
+# Config for nginx & start:
+rm /etc/nginx/sites-enabled/default
+cp /containerSetup/nginx/soundcomparisons /etc/nginx/sites-available
+ln -s /etc/nginx/sites-available/soundcomparisons /etc/nginx/sites-enabled/soundcomparisons
+systemctl start nginx
