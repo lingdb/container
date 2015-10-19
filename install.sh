@@ -30,3 +30,11 @@ rm /etc/nginx/sites-enabled/default
 cp /containerSetup/nginx/soundcomparisons /etc/nginx/sites-available
 ln -s /etc/nginx/sites-available/soundcomparisons /etc/nginx/sites-enabled/soundcomparisons
 systemctl start nginx
+# Fetching copy of website repository:
+echo "Taking care of website submodule:"
+git -C /containerSetup submodule init
+git -C /containerSetup submodule update
+echo "Installing fetchUpdate.{service,timer}:"
+cp /containerSetup/update/fetchUpdate.{service,timer} /etc/systemd/system
+systemctl enable fetchUpdate.timer
+systemctl start fetchUpdate.timer

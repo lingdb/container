@@ -1,0 +1,8 @@
+[Unit]
+Description=Run /containerSetup/update/fetchUpdate.sh a single time.
+
+[Service]
+Type=oneshot
+ExecStart=/containerSetup/update/fetchUpdate.sh
+User=vagrant
+Group=systemd-journal
