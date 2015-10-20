@@ -40,11 +40,13 @@ systemctl enable fetchUpdate.timer
 systemctl start fetchUpdate.timer
 # Setup and start of flask:
 echo "Performing flask setup:"
-# Copy config_example.py config.py: FIXME
 # Setup virtualenv and stuff:
 apt-get install -y virtualenv python-pip build-essential python-dev libmysqlclient-dev
+make -C /containerSetup/website clean
 make -C /containerSetup/website install
-# Install and start serviceMagic for flask: FIXME
+# Copy config_example.py -> config.py:
+cp /containerSetup/website/config_example.py /containerSetup/website/config.py
+# Install and start serviceMagic for flask:
 cp /containerSetup/flask/flask.service /etc/systemd/system
 systemctl enable flask.service
 systemctl start flask.service

@@ -1,10 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
 Vagrant.configure(2) do |config|
   # Custom code the check for database files:
   ["create.sql","dump.sql"].each{|name|
@@ -13,8 +9,6 @@ Vagrant.configure(2) do |config|
       raise LoadError.new("Necessary file not found: "+path)
     end
   }
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
 
   # Fetch box from https://atlas.hashicorp.com/ubuntu/boxes/vivid64
   # Using vivid64 instead of trusty to have systemd
@@ -36,23 +30,13 @@ Vagrant.configure(2) do |config|
 
   # Because of $reasons we share the containerSetup folder.
   config.vm.synced_folder ".", "/containerSetup"
-  # config.vm.synced_folder "../website", "/usr/share/nginx/html"
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
+  # VirtualBox specific setup:
   config.vm.provider "virtualbox" do |vb|
     vb.name = "SoundComparisons"
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
+    #vb.gui = true
+    #vb.memory = "1024"
   end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
 
   # Provision using install.sh
   config.vm.provision "shell", path: "install.sh"
