@@ -38,8 +38,8 @@ git -C /containerSetup submodule init
 git -C /containerSetup submodule update
 echo "Installing fetchUpdate.{service,timer}:"
 cp /containerSetup/update/fetchUpdate.{service,timer} /etc/systemd/system
-systemctl enable fetchUpdate.timer
-systemctl start fetchUpdate.timer
+#systemctl enable fetchUpdate.timer
+#systemctl start fetchUpdate.timer
 # Setup and start of flask:
 echo "Performing flask setup:"
 # Setup virtualenv and stuff:
