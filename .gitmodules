@@ -1,3 +1,3 @@
-[submodule "website"]
-	path = website
-	url = https://github.com/lingweb/soundcomparisons
+[submodule "soundcomparisons"]
+	path = soundcomparisons
+	url = https://github.com/lingdb/soundcomparisons
