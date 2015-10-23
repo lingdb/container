@@ -10,12 +10,12 @@ apt-get install -y mariadb-server
 systemctl enable mysql
 systemctl start mysql
 #grant all privileges on *.* to root@localhost identified by '1234' with grant option
-echo "CREATE DATABASE IF NOT EXISTS v4 CHARACTER SET utf8;"|mysql -uroot -p1234
+echo "CREATE DATABASE IF NOT EXISTS v5 CHARACTER SET utf8;"|mysql -uroot -p1234
 echo "GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY '1234' WITH GRANT OPTION;"|mysql -uroot -p1234
-echo "Creating v4 tables:"
-mysql -uroot -p1234 v4 < /containerSetup/database/create.sql
-echo "Inserting v4 dump:"
-mysql -uroot -p1234 v4 < /containerSetup/database/dump.sql
+echo "Creating v5 tables:"
+mysql -uroot -p1234 v5 < /containerSetup/database/create.sql
+echo "Inserting v5 dump:"
+mysql -uroot -p1234 v5 < /containerSetup/database/dump.sql
 # Install dumpdb stuff:
 echo "Installing dumpdb.{service,timer}:"
 apt-get install -y mariadb-client
