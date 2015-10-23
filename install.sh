@@ -38,8 +38,8 @@ ln -s /etc/nginx/sites-available/soundcomparisons /etc/nginx/sites-enabled/sound
 sed -i.bak "s/sendfile on/sendfile off/g" /etc/nginx/nginx.conf
 rm /etc/nginx/nginx.conf.bak
 systemctl start nginx
-# Fetching copy of website repository:
-echo "Taking care of website submodule:"
+# Fetching copy of soundcomparisons repository:
+echo "Taking care of soundcomparisons submodule:"
 git -C /containerSetup submodule init
 git -C /containerSetup submodule update
 echo "Installing fetchUpdate.{service,timer}:"
@@ -50,10 +50,10 @@ cp /containerSetup/update/fetchUpdate.{service,timer} /etc/systemd/system
 echo "Performing flask setup:"
 # Setup virtualenv and stuff:
 apt-get install -y virtualenv python-pip build-essential python-dev libmysqlclient-dev
-make -C /containerSetup/website clean
-make -C /containerSetup/website install
+make -C /containerSetup/soundcomparisons clean
+make -C /containerSetup/soundcomparisons install
 # Copy config_example.py -> config.py:
-cp /containerSetup/website/config_example.py /containerSetup/website/config.py
+cp /containerSetup/soundcomparisons/config_example.py /containerSetup/soundcomparisons/config.py
 # Install and start serviceMagic for flask:
 cp /containerSetup/flask/flask.service /etc/systemd/system
 systemctl enable flask.service

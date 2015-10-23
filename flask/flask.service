@@ -1,5 +1,5 @@
 [Unit]
-Description=Run '/containerSetup/website/make main'.
+Description=Run '/containerSetup/soundcomparisons/make main'.
 Requires=mysql.service
 
 [Install]
@@ -7,7 +7,7 @@ WantedBy=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/make -C /containerSetup/website main
+ExecStart=/usr/bin/make -C /containerSetup/soundcomparisons main
 User=vagrant
 Group=systemd-journal
 Restart=always
