@@ -9,7 +9,7 @@ server {
 
 	# Serving static files:
 	location /static/ {
-		alias /containerSetup/website/static/;
+		alias /containerSetup/soundcomparisons/static/;
 		autoindex off;
 	}
 
