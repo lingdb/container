@@ -19,7 +19,8 @@ mysql -uroot -p1234 v5 < /containerSetup/database/dump.sql
 # Install dumpdb stuff:
 echo "Installing dumpdb.{service,timer}:"
 apt-get install -y mariadb-client
-cp /containerSetup/database/dumpdb.{service,timer} /etc/systemd/system
+ln -s /containerSetup/database/dumpdb.service /etc/systemd/system/dumpdb.service
+ln -s /containerSetup/database/dumpdb.timer /etc/systemd/system/dumpdb.timer
 systemctl enable dumpdb.timer
 systemctl start dumpdb.timer
 # Setup for nginx:
@@ -29,7 +30,7 @@ systemctl enable nginx
 systemctl stop nginx
 # Config for nginx & start:
 rm /etc/nginx/sites-enabled/default
-cp /containerSetup/nginx/soundcomparisons /etc/nginx/sites-available
+ln -s /containerSetup/nginx/soundcomparisons /etc/nginx/sites-available/soundcomparisons
 ln -s /etc/nginx/sites-available/soundcomparisons /etc/nginx/sites-enabled/soundcomparisons
 # Setting sendfile off:
 # https://docs.vagrantup.com/v2/synced-folders/virtualbox.html
@@ -43,7 +44,8 @@ echo "Taking care of soundcomparisons submodule:"
 git -C /containerSetup submodule init
 git -C /containerSetup submodule update
 echo "Installing fetchUpdate.{service,timer}:"
-cp /containerSetup/update/fetchUpdate.{service,timer} /etc/systemd/system
+ln -s /containerSetup/update/fetchUpdate.service /etc/systemd/system/fetchUpdate.service
+ln -s /containerSetup/update/fetchUpdate.timer /etc/systemd/system/fetchUpdate.timer
 #systemctl enable fetchUpdate.timer
 #systemctl start fetchUpdate.timer
 # Setup and start of flask:
@@ -55,6 +57,6 @@ make -C /containerSetup/soundcomparisons install
 # Copy config_example.py -> config.py:
 cp /containerSetup/soundcomparisons/config_example.py /containerSetup/soundcomparisons/config.py
 # Install and start serviceMagic for flask:
-cp /containerSetup/flask/flask.service /etc/systemd/system
+ln -s /containerSetup/flask/flask.service /etc/systemd/system/flask.service
 systemctl enable flask.service
 systemctl start flask.service
