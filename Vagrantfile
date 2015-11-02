@@ -2,14 +2,6 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  # Custom code the check for database files:
-  ["create.sql","dump.sql"].each{|name|
-    path = "database/"+name
-    if !File.exist?(path)
-      raise LoadError.new("Necessary file not found: "+path)
-    end
-  }
-
   # Fetch box from https://atlas.hashicorp.com/ubuntu/boxes/vivid64
   # Using vivid64 instead of trusty to have systemd
   config.vm.box = "ubuntu/vivid64"
@@ -39,5 +31,5 @@ Vagrant.configure(2) do |config|
   end
 
   # Provision using install.sh
-  config.vm.provision "shell", path: "install.sh"
+  #config.vm.provision "shell", path: "install.sh"
 end
