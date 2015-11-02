@@ -1,0 +1,14 @@
+# https://github.com/lingdb/container/issues/1
+# https://unix.stackexchange.com/a/84289/23749
+
+description "Run '/containerSetup/soundcomparisons/make main'."
+author "Jakob Runge <mam09crm@studserv.uni-leipzig.de>"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+respawn
+
+chdir /containerSetup/soundcomparisons
+
+exec /usr/bin/make -C /containerSetup/soundcomparisons main
