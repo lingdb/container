@@ -13,7 +13,7 @@ sudo -u vagrant hg checkout -R $lexdb py2.7-django1.8
 sudo -u vagrant virtualenv -p python2.7 $lexdb
 sudo -u vagrant $lexdb/bin/pip install -r $lexdb/REQUIREMENTS
 # Workaround because of build problems with lxml, see https://github.com/lingdb/container/issues/2:
-grep -v '#' $lexdb/REQUIREMENTS-DEV | grep -v lxml | xargs sudp -u vagrant $lexdb/bin/pip install
+grep -v '#' $lexdb/REQUIREMENTS-DEV | grep -v lxml | xargs sudo -u vagrant $lexdb/bin/pip install
 echo "Editing …ielex/local_settings.py"
 file="$lexdb/ielex/local_settings.py"
 cp $file.dist $file
