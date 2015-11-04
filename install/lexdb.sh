@@ -30,3 +30,6 @@ rm $file.bak
 # SyncDB:
 # FIXME how to make step below non interactive?!
 #./bin/python manage.py syncdb
+# Install and start service magic for lexdb.sh:
+cp /containerSetup/install/lexdb.upstart /etc/init/lexdb.conf
+service lexdb start

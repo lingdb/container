@@ -1,0 +1,13 @@
+# Inspired by soundcomparisons.upstart
+
+description "Run '/containerSetup/lexdb/manage.py runserver'."
+author "Jakob Runge <mam09crm@studserv.uni-leipzig.de>"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+respawn
+
+chdir /containerSetup/lexdb
+
+exec ./bin/python manage.py runserver

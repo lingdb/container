@@ -12,6 +12,6 @@ make -C /containerSetup/soundcomparisons clean
 make -C /containerSetup/soundcomparisons install
 # Copy config_example.py -> config.py:
 cp /containerSetup/soundcomparisons/config_example.py /containerSetup/soundcomparisons/config.py
-# Install and start serviceMagic for flask:
+# Install and start service magic for flask:
 cp /containerSetup/install/soundcomparisons.upstart /etc/init/soundcomparisons.conf
 service soundcomparisons start
