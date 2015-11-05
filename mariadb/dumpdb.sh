@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /containerSetup/database
+cd /containerSetup/mariadb
 # Name to use for the new database dump:
 name=`date +"%Y-%m-%d"`
 echo "Creating database dump: $name.sql"
