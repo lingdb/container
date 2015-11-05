@@ -23,7 +23,7 @@ sed -i.bak "s/'USER': '',.*$/'USER':'ielexuser',/" $file
 sed -i.bak "s/'PASSWORD': '',.*$/'PASSWORD':'abcd1234',/" $file
 sed -i.bak "s/'HOST': '',.*$/'HOST':'localhost',/" $file
 sed -i.bak "s/'^.*PORT': '',.*$//" $file
-sed -i.bak "s/ALLOWED_HOSTS = \[/ALLOWED_HOSTS = \[\"127.0.0.1:5001\"/" $file
+sed -i.bak "s/ALLOWED_HOSTS = \[/ALLOWED_HOSTS = \[\"127.0.0.1\"/" $file
 secret=$(pwgen 32 1)
 sed -i.bak "s/SECRET_KEY = \"<++>\"/SECRET_KEY = \"$secret\"/" $file
 rm $file.bak
