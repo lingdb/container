@@ -1,4 +1,4 @@
 #!/usr/bin/bash
-docker run --link container.mariadb:mysql \
+docker run --link lingdb.mariadb:mysql \
            -v `pwd`:/backup \
-           -it docker.mariadb.backup /dumpdb.sh
+           -it lingdb.mariadb.backup /dumpdb.sh

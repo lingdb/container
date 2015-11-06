@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-docker build -t docker.mariadb.backup .
+docker build -t lingdb.mariadb.backup .
