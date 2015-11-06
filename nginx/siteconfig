@@ -17,6 +17,8 @@ server {
 
   # Forwarding to soundcomparisons:
   location /sndcomp/ {
+    auth_basic              "closed site";
+    auth_basic_user_file    /containerSetup/nginx/htpasswd;
     rewrite /sndcomp/(.*) /$1 break;
     proxy_pass              http://127.0.0.1:5000;
     proxy_set_header        Host             $http_host;
@@ -32,6 +34,8 @@ server {
 
   # Forwarding to ielex2:
   location / {
+    auth_basic              "closed site";
+    auth_basic_user_file    /containerSetup/nginx/htpasswd;
     proxy_pass              http://127.0.0.1:5001;
     proxy_set_header        Host             $http_host;
     proxy_set_header        X-Real-IP        $remote_addr;
