@@ -3,8 +3,10 @@ echo "Installing PostgreSQL:"
 apt-get install -y postgresql
 asPG="sudo -u postgres"
 dir="/containerSetup/postgresql"
-#$asPG createuser -D -A ielexuser
-#$asPG createdb -T template0 -O ielexuser ielexdb201510
+# Recreating database:
+echo "DROP DATABASE IF EXISTS ielexdb201510;" | $asPG psql
 $asPG createdb -T template0 ielexdb201510
+# (Re-)creating user:
 $asPG psql < $dir/createUser.sql
+# Filling database:
 $asPG psql ielexdb201510 < $dir/dump.sql

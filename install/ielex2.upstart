@@ -1,6 +1,6 @@
 # Inspired by soundcomparisons.upstart
 
-description "Run '/containerSetup/lexdb/manage.py runserver'."
+description "Run '/containerSetup/ielex2/manage.py runserver'."
 author "Jakob Runge <mam09crm@studserv.uni-leipzig.de>"
 
 start on runlevel [2345]
@@ -8,6 +8,6 @@ stop on runlevel [016]
 
 respawn
 
-chdir /containerSetup/lexdb
+chdir /containerSetup/ielex2
 
 exec ./bin/python manage.py runserver 127.0.0.1:5001

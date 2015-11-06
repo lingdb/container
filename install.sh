@@ -10,4 +10,4 @@ apt-get update
 # Installing postgresql:
 /containerSetup/install/postgresql.sh
 # Installing lexdb service:
-/containerSetup/install/lexdb.sh
+/containerSetup/install/ielex2.sh
