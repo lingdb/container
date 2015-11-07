@@ -1,4 +1,7 @@
 #!/usr/bin/bash
-docker run --link lingdb.mariadb:mysql \
+last=$(docker ps -f "name=lingdb.mariadb" -f status=running -n=1 --format "{{.Names}}")
+image="lingdb.mariadb.create"
+echo "Running $image against $last…"
+docker run --link $last:mysql \
            -v `pwd`:/create \
-           -it lingdb.mariadb.create /create.sh
+           $image
