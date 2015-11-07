@@ -1,0 +1,34 @@
+##
+# File written by Jakob Runge 2015-10-19
+# https://stackoverflow.com/q/10631933/448591
+# https://serverfault.com/q/363159/138127
+# https://serverfault.com/q/171678/138127
+##
+server {
+  # IPv{4,6} listen on port 80:
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+# # Serving static files for soundcomparisons:
+# location /sndcomp/static/ {
+#   alias /containerSetup/soundcomparisons/static/;
+#   autoindex off;
+# }
+
+  # Forwarding to soundcomparisons:
+  location /sndcomp/ {
+    rewrite /sndcomp/(.*) /$1 break;
+    proxy_pass              http://sndcomp:5000;
+    proxy_set_header        Host             $http_host;
+    proxy_set_header        X-Real-IP        $remote_addr;
+    proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
+  }
+
+  # Forwarding to lexdb:
+  location / {
+    proxy_pass              http://ielex:5001;
+    proxy_set_header        Host             $http_host;
+    proxy_set_header        X-Real-IP        $remote_addr;
+    proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
+  }
+}

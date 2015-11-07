@@ -4,4 +4,4 @@ image="lingdb.mariadb.backup"
 echo "Running $image against $last…"
 docker run --link $last:mysql \
            -v `pwd`:/backup \
-           $image
+           -d $image

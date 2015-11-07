@@ -17,4 +17,5 @@ RUN chmod u+x /getSndcomp.sh && \
 
 EXPOSE 5000
 
-ENTRYPOINT /entrypoint.sh
+#ENTRYPOINT /entrypoint.sh
+CMD ["/entrypoint.sh"]
