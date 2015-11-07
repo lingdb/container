@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # https://hub.docker.com/_/postgres/
 # Setup:
 last=$(docker ps -f name=lingdb.postgres -f status=exited -n=1 --format="{{.Names}}")

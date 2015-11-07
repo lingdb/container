@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 last=$(docker ps -f "name=lingdb.mariadb" -f status=running -n=1 --format "{{.Names}}")
 image="lingdb.mariadb.create"
 echo "Running $image against $last…"

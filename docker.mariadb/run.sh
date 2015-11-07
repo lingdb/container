@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # https://hub.docker.com/_/mariadb/
 # Setup:
 last=$(docker ps -f name=lingdb.mariadb -f status=exited -n=1 --format="{{.Names}}")
