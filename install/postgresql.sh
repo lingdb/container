@@ -9,4 +9,4 @@ $asPG createdb -T template0 ielexdb201510
 # (Re-)creating user:
 $asPG psql < $dir/createUser.sql
 # Filling database:
-$asPG psql ielexdb201510 < $dir/dump.sql
+#$asPG psql ielexdb201510 < $dir/dump.sql
