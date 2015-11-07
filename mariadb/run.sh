@@ -6,7 +6,7 @@ name="lingdb.mariadb.$(date -I).$(pwgen 5 1)"
 mysql="-e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=v5"
 # Action:
 echo "Container to start: $name"
-if [ -z "$name" ]; then
+if [ -z "$last" ]; then
   echo "No prior container found -> no volumes to reuse…"
   docker run --name $name $mysql -d mariadb:latest
 else
