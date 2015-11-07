@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-docker build -t lingdb.ielex2 .
+docker build -t lingdb.ielex2.stage0 .

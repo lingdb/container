@@ -15,5 +15,3 @@ COPY ielex2 /ielex2
 COPY configIELex2.sh /
 RUN chmod u+x /configIELex2.sh && \
     /configIELex2.sh
-
-EXPOSE 5000
