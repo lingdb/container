@@ -5,4 +5,3 @@ for image in $images; do
   echo "Pulling image: $image";
   docker pull $image
 done
-
