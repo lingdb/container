@@ -16,8 +16,8 @@ Vagrant.configure(2) do |config|
   # VirtualBox specific setup:
   config.vm.provider "virtualbox" do |vb|
     vb.name = "com.github.lingdb.container"
+    vb.memory = "1024"
     #vb.gui = true
-    #vb.memory = "1024"
   end
 
   config.vm.provision "shell", path: "install.sh"
