@@ -1,5 +1,5 @@
 # container
-A [Vagrant](https://www.vagrantup.com) with [docker](https://www.docker.com/) containers inside of it.
+A [Vagrant](https://www.vagrantup.com) container with [docker](https://www.docker.com/) containers inside of it.
 
 Aims to help with staging and deployment of some lingdb projects.
 
