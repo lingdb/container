@@ -29,8 +29,8 @@ To do so these steps are necessary:
 ## Container specific setup:
 For information about necessary files and container specific configuration please see the following container specific pages:
 
-* mariadb
-* postgres
-* sndcomp
-* ielex2
-* nginx
+* [mariadb](../../wiki/mariadb)
+* [postgres](../../wiki/postgres)
+* [sndcomp](../../wiki/sndcomp)
+* [ielex2](../../wiki/ielex2)
+* [nginx](../../wiki/nginx)
