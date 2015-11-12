@@ -13,6 +13,7 @@ COPY entrypoint.sh /
 COPY client_secrets.json /
 RUN chmod u+x /getSndcomp.sh && \
     chmod u+x /entrypoint.sh && \
+    sync && \
     /getSndcomp.sh
 
 EXPOSE 5000
