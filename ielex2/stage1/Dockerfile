@@ -14,4 +14,5 @@ RUN apt-get install -y \
 COPY ielex2 /ielex2
 COPY configIELex2.sh /
 RUN chmod u+x /configIELex2.sh && \
+    sync && \
     /configIELex2.sh
