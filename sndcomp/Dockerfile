@@ -11,8 +11,7 @@ RUN apt-get install -y \
 COPY getSndcomp.sh /
 COPY entrypoint.sh /
 COPY client_secrets.json /
-RUN chmod u+x /getSndcomp.sh && \
-    chmod u+x /entrypoint.sh && \
+RUN chmod u+x /getSndcomp.sh /entrypoint.sh && \
     sync && \
     /getSndcomp.sh
 
