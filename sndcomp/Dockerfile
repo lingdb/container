@@ -2,6 +2,10 @@ FROM continuumio/anaconda:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
+LABEL lingdb="sndcomp" \
+      version="1.0.0" \
+      documentation="https://github.com/lingdb/container/wiki/sndcomp"
+
 RUN apt-get install -y \
     build-essential \
     libmysqlclient-dev \

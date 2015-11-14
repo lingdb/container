@@ -2,6 +2,10 @@ FROM continuumio/anaconda:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
+LABEL lingdb="ielex2/stage0" \
+      version="1.0.0" \
+      documentation="https://github.com/lingdb/container/wiki/ielex2"
+
 RUN apt-get install -y \
     build-essential \
     postgresql-server-dev-all \
