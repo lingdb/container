@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM postgres:9.3.10
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
@@ -8,8 +8,7 @@ LABEL lingdb="postgres/backup" \
 
 COPY backup.sh /
 
-RUN apt-get install -y postgresql-client && \
-    mkdir /backup && \
+RUN mkdir /backup && \
     chmod u+x /backup.sh
 
 ENTRYPOINT /backup.sh

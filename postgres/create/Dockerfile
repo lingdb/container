@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM postgres:9.3.10
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
@@ -8,8 +8,7 @@ LABEL lingdb="postgres/create" \
 
 COPY create.sh /
 
-RUN apt-get install -y postgresql-client && \
-    mkdir /create && \
+RUN mkdir /create && \
     chmod u+x /create.sh
 
 ENTRYPOINT /create.sh

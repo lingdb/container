@@ -2,7 +2,7 @@
 # https://hub.docker.com/_/mariadb/
 # Setup:
 last=$(docker ps -f name=lingdb/mariadb -f status=exited -n=1 -q)
-name="lingdb/mariadb/$(date -I)/$(pwgen 5 1)"
+name="lingdb_mariadb_$(date -I)_$(pwgen 5 1)"
 mysql="-e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=v5"
 # Action:
 echo "Container to start: $name"

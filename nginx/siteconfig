@@ -7,18 +7,21 @@
 # http://nginx.org/en/docs/http/ngx_http_upstream_module.html
 # https://stackoverflow.com/a/5877989/448591
 ##
+upstream sndcomp {
+  server sndcomp.lingdb.docker0:5000;
+}
+
+upstream ielex2 {
+  server stage2.lingdb.docker0:5000;
+}
+
 server {
   # IPv{4,6} listen on port 80:
   listen 80 default_server;
   listen [::]:80 default_server;
 
-  upstream sndcomp {
-    server lingdb.sndcomp.lingdb.docker0:5000;
-  }
-
-  upstream ielex2 {
-    server lingdb.ielex2.stage2.lingdb.docker0:5000;
-  }
+# resolver 172.17.0.1 valid=0s;
+# resolver_timeout 10s;
 
 # # Serving static files for soundcomparisons:
 # location /sndcomp/static/ {
@@ -36,12 +39,6 @@ server {
     proxy_set_header        X-Real-IP        $remote_addr;
     proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
   }
-
-# # Serving static files for ielex2:
-# location /media/ {
-#   alias /containerSetup/ielex2/ielex/media/;
-#   autoindex off;
-# }
 
   # Forwarding to lexdb:
   location / {
