@@ -15,4 +15,4 @@ secret=$(pwgen 32 1)
 sed -i.bak "s/SECRET_KEY = \"<++>\"/SECRET_KEY = \"$secret\"/" $file
 rm $file.bak
 echo "Starting build…"
-docker build -t lingdb.ielex2.stage0 .
+docker build -t lingdb/ielex2/stage0 .

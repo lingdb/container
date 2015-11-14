@@ -1,4 +1,4 @@
-FROM lingdb.ielex2.stage1:latest
+FROM lingdb/ielex2/stage1:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 

@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t lingdb.nginx .
+docker build -t lingdb/nginx .

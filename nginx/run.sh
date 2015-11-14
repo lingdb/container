@@ -1,8 +1,8 @@
 #!/bin/bash
-sndcomp=$(docker ps -f "name=lingdb.sndcomp" -f status=running -n=1 -q)
-ielex=$(docker ps -f "name=lingdb.ielex2.stage2" -f status=running -n=1 -q)
-image="lingdb.nginx"
-name="$image.$(date -I).$(pwgen 5 1)"
+sndcomp=$(docker ps -f "name=lingdb/sndcomp" -f status=running -n=1 -q)
+ielex=$(docker ps -f "name=lingdb/ielex2/stage2" -f status=running -n=1 -q)
+image="lingdb/nginx"
+name="$image/$(date -I)/$(pwgen 5 1)"
 if [ -z "$sndcomp" -a -z "$ielex" ]; then
   echo "Not starting nginx because neither sndcomp nor ielex are available."
 elif [ -z "$sndcomp" ]; then
