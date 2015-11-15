@@ -14,17 +14,11 @@ RUN apt-get update && \
     libxml2-dev \
     libxslt-dev \
     python2.7-lxml \
-    pwgen zlib1g-dev
-
+    pwgen zlib1g-dev \
 # This appears to be helpful for testing and stuff
 # Also the pip install wasn't given in REQUIREMENTS
 # State 2015-11-12
-RUN pip install \
-    WTForms-SQLAlchemy \
-    WTForms \
-    django_tables2 \
-    wtforms_components && \
-    apt-get install -y vim less
+    vim less
 
 COPY ielex2 /ielex2
 COPY configIELex2.sh /
