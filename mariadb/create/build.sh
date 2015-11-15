@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t lingdb/mariadb/create .
+docker build -t lingdb/mariadb_create .
