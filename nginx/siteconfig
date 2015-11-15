@@ -12,7 +12,7 @@ upstream sndcomp {
 }
 
 upstream ielex2 {
-  server stage2.lingdb.docker0:5000;
+  server ielex2_stage2.lingdb.docker0:5000;
 }
 
 server {
