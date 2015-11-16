@@ -11,5 +11,5 @@ LABEL lingdb="nginx" \
 RUN echo "options single-request" >> /etc/resolv.conf
 
 # Copying config files:
-COPY siteconfig /etc/nginx/conf.d/default.conf
+COPY siteconfig.tmp /etc/nginx/conf.d/default.conf
 COPY htpasswd /
