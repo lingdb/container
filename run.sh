@@ -1,5 +1,4 @@
 #!/bin/bash
-# Starting most containers…
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 
@@ -23,4 +22,5 @@ echo "Starting backup containers…"
 
 echo "Starting web apps…"
 (cd sndcomp && ./run.sh)
+(cd ielex2 && ./run.sh)
 (cd nginx && ./run.sh)

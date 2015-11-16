@@ -1,8 +1,15 @@
 #!/bin/bash
+# Pulling all the base images that the containers build upon.
+images="continuumio/anaconda:latest ubuntu:latest mariadb:latest nginx:latest postgres:9.3.10 crosbymichael/skydns:latest crosbymichael/skydock:latest"
+echo "Pulling base images:"
+for image in $images; do
+  echo "Pulling image: $image"
+  docker pull $image
+done
 # https://stackoverflow.com/a/246128/448591
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
-# Pulling all the base images that the containers build upon.
+# Building containers…
 echo "Getting containers ready…"
 containers="mariadb/create mariadb/backup postgres/create postgres/backup sndcomp ielex2 nginx"
 for cont in $containers; do

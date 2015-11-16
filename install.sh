@@ -3,6 +3,5 @@ echo "Updating package database:"
 apt-get update
 apt-get install -y docker.io pwgen
 cd /containerSetup
-./pullBaseImages.sh
-./buildContainers.sh
-./startMost.sh
+./build.sh
+./run.sh
