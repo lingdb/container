@@ -1,2 +1,5 @@
 #!/bin/bash
-docker build -t lingdb/postgres_backup .
+image="lingdb/postgres_backup"
+tag=$(date -I | sed -e 's/-/./g')
+docker build -t $image:$tag .
+docker tag -f $image:$tag $image:latest

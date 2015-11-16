@@ -8,4 +8,7 @@ docker run --link $last:postgres \
            --name $name \
            -it $image bash
 echo "Committing $name as stage1…"
-docker commit -a "Jakob Runge <mam09crm@studserv.uni-leipzig.de>" $name lingdb/ielex2_stage1
+stage="lingdb/ielex2_stage1"
+tag=$(date -I | sed -e 's/-/./g')
+docker commit -a "Jakob Runge <mam09crm@studserv.uni-leipzig.de>" $name $stage:$tag
+docker tag -f $stage:$tag $stage:latest

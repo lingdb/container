@@ -1,2 +1,5 @@
 #!/bin/bash
-docker build -t lingdb/mariadb_create .
+image="lingdb/mariadb_create"
+tag=$(date -I | sed -e 's/-/./g')
+docker build -t $image:$tag .
+docker tag -f $image:$tag $image:latest

@@ -15,4 +15,7 @@ secret=$(pwgen 32 1)
 sed -i.bak "s/SECRET_KEY = \"<++>\"/SECRET_KEY = \"$secret\"/" $file
 rm $file.bak
 echo "Starting build…"
-docker build -t lingdb/ielex2_stage0 .
+image="lingdb/ielex2_stage0"
+tag=$(date -I | sed -e 's/-/./g')
+docker build -t $image:$tag .
+docker tag -f $image:$tag $image:latest
