@@ -1,7 +1,7 @@
 #!/bin/bash
 dir="/sndcomp"
 src="https://github.com/lingdb/soundcomparisons"
-tag="oauth"
+tag="0d4f259c72ec8675c199bb239f3e0325bcef914e"
 cd $dir
 git clone $src $dir
 git checkout $tag
