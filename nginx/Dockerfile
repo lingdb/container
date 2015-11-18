@@ -8,8 +8,10 @@ LABEL lingdb="nginx" \
 
 # To prevent DNS floods:
 # https://serverfault.com/a/345922/138127
-RUN echo "options single-request" >> /etc/resolv.conf
+RUN echo "options single-request" >> /etc/resolv.conf && \
+    mkdir /ielexStatic
 
 # Copying config files:
 COPY siteconfig.tmp /etc/nginx/conf.d/default.conf
 COPY htpasswd /
+COPY ielexStatic /ielexStatic

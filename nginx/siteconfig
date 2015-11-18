@@ -24,6 +24,12 @@ server {
 #   autoindex off;
 # }
 
+  # Serving static files for ielex2:
+  location /static/ {
+    alias /ielexStatic/;
+    autoindex off;
+  }
+
   # Forwarding to soundcomparisons:
   location /sndcomp/ {
     auth_basic              "closed site";
