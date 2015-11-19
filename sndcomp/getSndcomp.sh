@@ -1,10 +1,6 @@
 #!/bin/bash
 dir="/sndcomp"
-src="https://github.com/lingdb/soundcomparisons"
-tag="0d4f259c72ec8675c199bb239f3e0325bcef914e"
 cd $dir
-git clone $src $dir
-git checkout $tag
 pip install -r $dir/requirements.txt
 cp $dir/config_example.py $dir/config.py
 sed -i.bak "s/dbURI = 'mysql:\/\/root:1234@localhost\/v5'/dbURI = 'mysql:\/\/root:1234@mysql\/v5'/" $dir/config.py

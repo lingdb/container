@@ -8,7 +8,6 @@ if [ -z "$last" ]; then
 else
   echo "Running $image against $last…"
   docker run --link $last:mysql \
-             -v `pwd`/sound:/sndcomp/static/sound \
              --name $name \
              -d $image
 fi

@@ -14,8 +14,6 @@ sed -i.bak "s/STATIC_ROOT = .\"/STATIC_ROOT = \"ielex\/static\/\"/" $file
 secret=$(pwgen 32 1)
 sed -i.bak "s/SECRET_KEY = \"<++>\"/SECRET_KEY = \"$secret\"/" $file
 rm $file.bak
-echo "Copying static files to nginx…"
-cp -rv ielex2/static/* ../../nginx/ielexStatic
 echo "Starting build…"
 image="lingdb/ielex2_stage0"
 tag=$(date -I | sed -e 's/-/./g')

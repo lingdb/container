@@ -1,4 +1,0 @@
-Add semantic_domains to settings.py
-Remove import ROOTDIR from local_settings.py
-
-COPY DATABASES form local_settings.py to settings.py

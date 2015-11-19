@@ -3,7 +3,7 @@ FROM continuumio/anaconda:latest
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
 LABEL lingdb="sndcomp" \
-      version="1.0.0" \
+      version="1.1.0" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp"
 
 RUN apt-get update && \
@@ -12,6 +12,8 @@ RUN apt-get update && \
     libmysqlclient-dev \
     git pwgen && \
     mkdir /sndcomp
+
+COPY soundcomparisons \sndcomp
 
 COPY getSndcomp.sh \
      entrypoint.sh \

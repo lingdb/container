@@ -2,9 +2,6 @@
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 
-echo "Starting docker dns setup…"
-(cd dns && ./run.sh)
-
 echo "Starting database containers…"
 (cd mariadb && ./run.sh)
 (cd postgres && ./run.sh)
