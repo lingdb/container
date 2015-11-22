@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # Because of $reasons we share the containerSetup folder.
-  config.vm.synced_folder ".", "/containerSetup"
+  config.vm.synced_folder "..", "/containerSetup"
 
   # VirtualBox specific setup:
   config.vm.provider "virtualbox" do |vb|
