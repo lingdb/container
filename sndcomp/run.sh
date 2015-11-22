@@ -13,6 +13,6 @@ else
   echo "Running $image against $last…"
   docker run --link $last:mysql \
              --name $name \
-             -v sound:/sndcomp/static/sound \
+             -v `pwd`/sound:/sndcomp/static/sound \
              -d $image
 fi
