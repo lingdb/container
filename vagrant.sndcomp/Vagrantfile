@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
 
   # VirtualBox specific setup:
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "lingdb.vagrant.all"
+    vb.name = "lingdb.vagrant.sndcomp"
     vb.memory = "1024"
     #vb.gui = true
   end
