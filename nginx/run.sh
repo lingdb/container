@@ -1,7 +1,7 @@
 #!/bin/bash
 # Links to use:
-sndcomp=$(docker ps -f "name=lingdb_sndcomp" -f status=running -n=1 -q)
-ielex=$(docker ps -f "name=lingdb_ielex" -f status=running -n=1 -q)
+sndcomp=$(docker ps -f "label=lingdb=sndcomp" -f status=running -n=1 -q)
+ielex=$(docker ps -f "label=lingdb=ielex_stage2" -f status=running -n=1 -q)
 # Checking start conditions:
 image="lingdb/nginx"
 name="lingdb_nginx_$(date -I)_$(pwgen 5 1)"

@@ -4,7 +4,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 cd ../nginx
 # Links to use:
-sndcomp=$(docker ps -f "name=lingdb_sndcomp" -f status=running -n=1 -q)
+sndcomp=$(docker ps -f "label=lingdb=sndcomp" -f status=running -n=1 -q)
 # Checking start conditions:
 image="lingdb/nginx_sndcomp"
 name="lingdb_nginx_sndcomp_$(date -I)_$(pwgen 5 1)"
