@@ -3,7 +3,7 @@ FROM continuumio/anaconda:latest
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
 LABEL lingdb="sndcomp" \
-      version="1.1.0" \
+      version="1.2.0" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp"
 
 RUN apt-get update && \
@@ -15,11 +15,13 @@ RUN apt-get update && \
 
 COPY soundcomparisons \sndcomp
 
-COPY getSndcomp.sh \
+COPY getSndcomp.sh.tmp \
      entrypoint.sh \
      client_secrets.json /
 
-RUN chmod u+x /getSndcomp.sh /entrypoint.sh && \
+RUN mv /getSndcomp.sh.tmp /getSndcomp.sh && \
+    sync && \
+    chmod u+x /getSndcomp.sh /entrypoint.sh && \
     sync && \
     /getSndcomp.sh
 
