@@ -1,5 +1,6 @@
 #!/bin/bash
 # Name to use for the new database dump:
+secret="<SECRET>"
 cd /backup
 while true; do
   name=$(date -I)
@@ -7,7 +8,7 @@ while true; do
   # Creating the dump:
   echo "SET AUTOCOMMIT=0;" > $name.sql
   echo "SET FOREIGN_KEY_CHECKS=0;" >> $name.sql
-  mysqldump -hmysql -uroot -p1234 --routines --single-transaction v5 | \
+  mysqldump -hmysql -uroot -p$secret --routines --single-transaction v5 | \
     sed -e 's/DEFINER=[^*]*\*/\*/' | \
     sed -e 's/DEFINER=.*PROCEDURE/PROCEDURE/' >> $name.sql
   echo "SET FOREIGN_KEY_CHECKS=1;" >> $name.sql

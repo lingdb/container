@@ -1,7 +1,8 @@
 #!/bin/bash
 # This script initializes and sources the secrets file.
 # https://github.com/lingdb/container/issues/6
-file="secrets"
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+file="$dir/secrets"
 if [ ! -f $file ]; then
   echo "Creating '$file', because they're missing…"
   touch $file
