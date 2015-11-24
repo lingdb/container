@@ -1,9 +1,12 @@
 #!/bin/bash
 # https://hub.docker.com/_/postgres/
 # Setup:
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $dir
+source ../secrets/secrets.sh
 last=$(docker ps -f label=lingdb=postgres -f status=exited -n=1 -q)
 name="--name lingdb_postgres_$(date -I)_$(pwgen 5 1)"
-pgsql="-e POSTGRES_USER=ielexuser -e POSTGRES_PASSWORD=abcd1234"
+pgsql="-e POSTGRES_USER=ielexuser -e POSTGRES_PASSWORD=$secretPostgreSQL"
 label="-l lingdb=postgres"
 # Action:
 echo "Container to start: $name"
