@@ -8,13 +8,10 @@ it became apparant that a container solution would be useful for our project.
 
 ## Vagrant setup:
 Since Docker depends on the linux kernel to be used it makes sense to have a Vagrant container for non linux machines to use.
-For Vagrant these steps are necessary:
+To be independent of linux one of the Vagrant setups can be used:
 
-1. Install Vagrant
-2. Clone this repository
-3. Provide necessary files
-4. `vagrant up`
-5. Use `vagrant ssh` to complete Docker setup.
+* [Vagrant](wiki/vagrant.sndcomp) for the soundcomparisons website.
+* [Vagrant](wiki/vagrant.all) for the whole project.
 
 ## Docker setup:
 If you're running linux you don't require the Vagrant setup, but can instead start with Docker directly.
@@ -23,8 +20,10 @@ To do so these steps are necessary:
 1. Install docker
 2. Clone this repository
 3. Provide necessary files
-4. Execute `pullBaseImages.sh`
-5. Execute `buildContainers.sh`
+4. Read the wiki entries for the wanted containers
+4. Inspect and execute `build.sh`
+5. Inspect and execute `run.sh`
+6. Perform additional steps as necessary
 
 ## Container specific setup:
 For information about necessary files and container specific configuration please see the following container specific pages:
