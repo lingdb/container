@@ -15,14 +15,28 @@ mkdir $mount $extract
 echo "mount -o loop $image $mount"
 sudo mount -o loop $image $mount
 # Extracting data:
-echo "rsync --exclude=/casper/filesystem.squashfs -a $mount/ $extract"
+echo "Extracting data…"
 sudo rsync --exclude=/casper/filesystem.squashfs -a $mount/ $extract
-echo "unsquashfs $mount/casper/filesystem.squashfs"
 sudo unsquashfs $mount/casper/filesystem.squashfs
 sudo mv squashfs-root edit
-# FIXME DEBUG
-#ls $mount
-#sleep 5s
-## Clearing mount:
-#sync
-#sudo umount $dir/mount
+sudo umount $mount
+# Preparing chroot:
+echo "Preparing chroot…"
+sudo cp /etc/resolv.conf edit/etc/
+sudo mount -o bind /run/ edit/run
+sudo mount --bind /dev/ edit/dev
+# Copying stuff for installation:
+# TODO solve these:
+# 1. Get internet inside chroot
+# 2. Cope stuff into chroot
+# 3. Run install script inside chroot
+# 4. Cleanup inside chroot
+# 5. Build image from stuff done inside chroot
+sudo cp inEdit.sh edit/
+# Doing the chroot:
+echo "chroot…"
+sudo chroot edit /bin/bash -c /inEdit.sh
+# Cleanup for chroot:
+sudo umount edit/run
+sudo umount edit/dev
+#sudo rm -rf edit $extract
