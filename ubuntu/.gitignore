@@ -1,5 +1,1 @@
 *.iso
-extract-cd
-mount
-edit
-squashfs-root
