@@ -1,7 +1,7 @@
 #!/bin/bash
 # http://www.postgresql.org/docs/9.0/static/libpq-envars.html
 # When passing test as first parameter, binds to 127.0.0.1:8080.
-last=$(docker ps -f label=lingdb=postgres -f label=deploy=development -f status=running -n=1 -q)Q
+last=$(docker ps -f label=lingdb=postgres -f label=deploy=development -f status=running -n=1 -q)
 image="lingdb/ielex2_stage2"
 name="lingdb_ielex2_stage2_$(date -I)_$(pwgen 5 1)"
 label="-l deploy=development"
