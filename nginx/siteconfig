@@ -12,7 +12,13 @@ server {
   listen 80 default_server;
   listen [::]:80 default_server;
 
-  # Serving static files for ielex2:
+  # Serving static files for ielex2 development:
+  location /development/ielex/static/ {
+    alias /ielexStatic/;
+    autoindex off;
+  }
+
+  # Serving static files for ielex2 production:
   location /ielex/static/ {
     alias /ielexStatic/;
     autoindex off;
@@ -39,11 +45,21 @@ server {
     proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
   }
 
-  # Forwarding to lexdb:
+  # Forwarding to lexdb development:
+  location /development/ {
+    auth_basic              "closed site";
+    auth_basic_user_file    /htpasswd;
+    proxy_pass              http://ielexd:5000;
+    proxy_set_header        Host             $http_host;
+    proxy_set_header        X-Real-IP        $remote_addr;
+    proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
+  }
+
+  # Forwarding to lexdb production:
   location / {
     auth_basic              "closed site";
     auth_basic_user_file    /htpasswd;
-    proxy_pass              http://ielex:5000;
+    proxy_pass              http://ielexp:5000;
     proxy_set_header        Host             $http_host;
     proxy_set_header        X-Real-IP        $remote_addr;
     proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
