@@ -10,7 +10,10 @@ pgsql="-e POSTGRES_USER=ielexuser -e POSTGRES_PASSWORD=$secretPostgreSQL"
 label="-l lingdb=postgres"
 # Action:
 echo "Container to start: $name"
-if [ -z "$last" ]; then
+if [ "vagrant" == "$1" ]; then
+  echo "Starting container for vagrant…"
+  docker run $name $label $pgsql -p 0.0.0.0:5432:5432 -d postgres:9.3.10
+elif [ -z "$last" ]; then
   echo "No prior container found -> no volumes to reuse…"
   docker run $name $label $pgsql -d postgres:9.3.10
 else
