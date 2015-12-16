@@ -6,7 +6,7 @@ cd $dir
 source ../secrets/secrets.sh
 last=$(docker ps -f label=lingdb=mariadb -f status=exited -n=1 -q)
 name="--name lingdb_mariadb_$(date -I)_$(pwgen 5 1)"
-mysql="-e MYSQL_ROOT_PASSWORD=$secretMariaDB -e MYSQL_DATABASE=v5"
+mysql="-e MYSQL_ROOT_PASSWORD=$secretMariaDB -e MYSQL_DATABASE=v4"
 label="-l lingdb=mariadb"
 # Action:
 echo "Container to start: $name"
