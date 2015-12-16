@@ -1,0 +1,13 @@
+# MariaDB-specific config file.
+# Read by /etc/mysql/my.cnf
+# Edited by Jakob Runge 2015-12-16 to improve utf8 handling.
+# To be placed in /etc/mysql/conf.d
+
+[client]
+default-character-set = utf8 
+
+[mysqld]
+character-set-server  = utf8 
+collation-server      = utf8_general_ci 
+character_set_server  = utf8 
+collation_server      = utf8_general_ci
