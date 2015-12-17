@@ -14,4 +14,3 @@ RUN echo "options single-request" >> /etc/resolv.conf
 COPY siteconfig /etc/nginx/conf.d/default.conf
 COPY htpasswd /
 COPY ielexStatic /ielexStatic
-COPY sndcompStatic /sndcompStatic
