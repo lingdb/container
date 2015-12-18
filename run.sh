@@ -18,6 +18,6 @@ echo "Starting backup containers…"
 (cd postgres/backup && ./run.sh)
 
 echo "Starting web apps…"
-(cd sndcomp && ./run.sh)
+(cd sndcomp.php && ./run.sh)
 (cd ielex2 && ./run.sh)
 (cd nginx && ./run.sh)
