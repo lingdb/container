@@ -6,7 +6,25 @@
 # Added resolver and variables for upstream 2015-11-15:
 # https://serverfault.com/a/593003/138127
 # https://forum.nginx.org/read.php?2,215830,215832#msg-215832
+# Added multiple server names:
+# http://nginx.org/en/docs/http/server_names.html
 ##
+server {
+  listen 80;
+  listen [::]:80;
+  server_name soundcomparisons.com www.soundcomparisons.com;
+
+  # Forwarding to soundcomparisons:
+  # soundcomparisons cares for its own static files,
+  # because it has an apache instance running.
+  location / {
+    proxy_pass              http://sndcomp:80;
+    proxy_set_header        Host             $http_host;
+    proxy_set_header        X-Real-IP        $remote_addr;
+    proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
+  }
+}
+
 server {
   # IPv{4,6} listen on port 80:
   listen 80 default_server;
@@ -16,19 +34,6 @@ server {
   location /ielex/static/ {
     alias /ielexStatic/;
     autoindex off;
-  }
-
-  # Forwarding to soundcomparisons:
-  # soundcomparisons cares for its own static files,
-  # because it has an apache instance running.
-  location /sndcomp/ {
-    auth_basic              "closed site";
-    auth_basic_user_file    /htpasswd;
-    rewrite /sndcomp/(.*) /$1 break;
-    proxy_pass              http://sndcomp:80;
-    proxy_set_header        Host             $http_host;
-    proxy_set_header        X-Real-IP        $remote_addr;
-    proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;
   }
 
   # Forwarding to lexdb:
