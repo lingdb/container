@@ -11,7 +11,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 # Building containers…
 echo "Getting containers ready…"
-containers="mariadb/create mariadb/backup postgres/create postgres/backup sndcomp.php ielex2 nginx nginx.sndcomp"
+containers="mariadb/create mariadb/backup postgres/create postgres/backup sndcomp sndcomp.php ielex2 nginx nginx.sndcomp"
 for cont in $containers; do
   echo "Now building $cont"
   # https://stackoverflow.com/a/786515/448591
