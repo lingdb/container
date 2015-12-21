@@ -4,11 +4,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 if [ ! -d src ]; then
   echo "src directory doesn't exist, cloning soundcomparisons:php…"
-  mkdir src
-  cd src
-  git clone https://github.com/lingdb/soundcomparisons .
-  git checkout php
-  cd ..
+  git clone -b php https://github.com/lingdb/soundcomparisons src
 fi
 # Checking config.php existance:
 if [ ! -f $dir/src/config.php ]; then
