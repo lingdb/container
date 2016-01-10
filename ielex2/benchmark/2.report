@@ -1,0 +1,11 @@
+changeset:   845:b18211416ebe
+branch:      devel
+tag:         tip
+user:        adgtt <gargetad@cs.bham.ac.uk>
+date:        Sun Jan 10 14:02:38 2016 +0000
+summary:     More tweaking of possible optimisations for filling HTML form on editable cognateclass page.
+
+Minimum: 0.305
+Maximum: 0.544
+Average: 0.4145
+Median:  0.414

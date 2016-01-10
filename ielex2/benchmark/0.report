@@ -1,0 +1,11 @@
+changeset:   843:98e75e51ec62
+branch:      devel
+tag:         tip
+user:        adgtt <gargetad@cs.bham.ac.uk>
+date:        Fri Jan 08 11:26:36 2016 +0000
+summary:     Further slight revision of tools for handling editing of CognateClasses, to speed up database updates.
+
+Minimum: 35.47
+Maximum: 42.315
+Average: 38.0577
+Median:  38.049
