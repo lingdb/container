@@ -1,0 +1,14 @@
+# https://github.com/lingdb/container/issues/1
+# https://unix.stackexchange.com/a/84289/23749
+# Used to start docker containers via upstart on lingdb server.
+# To be placed under `/etc/init`.
+
+description "Run '/srv/container/run.sh'."
+author "Jakob Runge <mam09crm@studserv.uni-leipzig.de>"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+chdir /srv/container
+
+exec /bin/bash run.sh
