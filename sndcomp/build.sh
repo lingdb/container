@@ -6,7 +6,7 @@ if [ -f client_secrets.json ]; then
   sed -e "s/<SECRET>/$secretMariaDB/g" getSndcomp.sh > getSndcomp.sh.tmp
   # Building image:
   image="lingdb/sndcomp"
-  tag=$(date -I | sed -e 's/-/./g')
+  tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
   docker build -t $image:$tag .
   docker tag -f $image:$tag $image:latest
   # Cleanup:

@@ -3,7 +3,7 @@ FROM continuumio/anaconda:latest
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
 LABEL lingdb="sndcomp" \
-      version="1.2.0" \
+      version="1.2.1" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp"
 
 RUN apt-get update && \

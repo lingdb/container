@@ -9,6 +9,6 @@ docker run --link $last:postgres \
            -it $image bash
 echo "Committing $name as stage1…"
 stage="lingdb/ielex2_stage1"
-tag=$(date -I | sed -e 's/-/./g')
+tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker commit -a "Jakob Runge <mam09crm@studserv.uni-leipzig.de>" $name $stage:$tag
 docker tag -f $stage:$tag $stage:latest

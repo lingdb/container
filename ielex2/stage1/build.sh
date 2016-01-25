@@ -25,6 +25,6 @@ rm $file.bak
 # Building image:
 echo "Starting build…"
 image="lingdb/ielex2_stage0"
-tag=$(date -I | sed -e 's/-/./g')
+tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker build -t $image:$tag .
 docker tag -f $image:$tag $image:latest

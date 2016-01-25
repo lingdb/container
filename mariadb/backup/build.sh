@@ -6,7 +6,7 @@ source ../../secrets/secrets.sh
 sed -e "s/<SECRET>/$secretMariaDB/g" dumpdb.sh > dumpdb.sh.tmp
 # Building image:
 image="lingdb/mariadb_backup"
-tag=$(date -I | sed -e 's/-/./g')
+tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker build -t $image:$tag .
 docker tag -f $image:$tag $image:latest
 # Cleanup:

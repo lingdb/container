@@ -7,6 +7,6 @@ echo "Copying sndcomp static files:"
 cp -r ../sndcomp/soundcomparisons/static/* sndcompStatic/
 # Building image:
 image="lingdb/nginx_sndcomp"
-tag=$(date -I | sed -e 's/-/./g')
+tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker build -t $image:$tag .
 docker tag -f $image:$tag $image:latest
