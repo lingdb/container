@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "Won't run ielex2 automatically because manual intervention is required."
+echo "Forwarding ielex2 startup to stage2."
+(cd stage2 && ./run.sh)
