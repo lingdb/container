@@ -6,7 +6,7 @@
 description "Run '/srv/container/run.sh'."
 author "Jakob Runge <mam09crm@studserv.uni-leipzig.de>"
 
-start on runlevel [2345]
+start on started docker
 stop on runlevel [016]
 
 chdir /srv/container
