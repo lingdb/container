@@ -1,17 +1,10 @@
 # container
-A [Vagrant](https://www.vagrantup.com) container with [docker](https://www.docker.com/) containers inside of it.
+Several [Docker](https://www.docker.com/) containers for parts of the lingdb projects.
 
 Aims to help with staging and deployment of some lingdb projects.
 
 As described in [soundcomparisons #217](https://github.com/lingdb/soundcomparisons/issues/217),
 it became apparant that a container solution would be useful for our project.
-
-## Vagrant setup:
-Since Docker depends on the linux kernel to be used it makes sense to have a Vagrant container for non linux machines to use.
-To be independent of linux one of the Vagrant setups can be used:
-
-* [Vagrant](wiki/vagrant.sndcomp) for the soundcomparisons website.
-* [Vagrant](wiki/vagrant.all) for the whole project.
 
 ## Docker setup:
 If you're running linux you don't require the Vagrant setup, but can instead start with Docker directly.
