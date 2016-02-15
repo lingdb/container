@@ -9,4 +9,4 @@ cp -r ../ielex2/stage1/ielex2/static/* ielexStatic/
 image="lingdb/nginx"
 tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker build -t $image:$tag .
-docker tag $image:$tag $image:latest
+docker tag -f $image:$tag $image:latest

@@ -12,4 +12,4 @@ echo "Committing $name as stage1…"
 stage="lingdb/ielex2_stage1"
 tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker commit -a "Jakob Runge <mam09crm@studserv.uni-leipzig.de>" $name $stage:$tag
-docker tag $stage:$tag $stage:latest
+docker tag -f $stage:$tag $stage:latest
