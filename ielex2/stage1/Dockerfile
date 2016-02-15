@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM node:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
@@ -17,7 +17,11 @@ RUN apt-get update \
     python2.7 python2.7-dev \
     python-pip \
     python2.7-lxml \
-    vim less
+    vim \
+    less \
+    git \
+ && npm install --global bower \
+ && git config --global url."https://".insteadOf git://
 
 COPY ielex2 /ielex2
 COPY configIELex2.sh /
