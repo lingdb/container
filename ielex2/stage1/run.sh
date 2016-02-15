@@ -6,7 +6,8 @@ name="lingdb_ielex2_stage0_$(date -I)_$(pwgen 5 1)"
 echo "Running $image against $last…"
 docker run --link $last:postgres \
            --name $name \
-           -it $image bash
+           -v `pwd`/ielex2:/ielex2 \
+           -it $image
 echo "Committing $name as stage1…"
 stage="lingdb/ielex2_stage1"
 tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")

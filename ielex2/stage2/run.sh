@@ -10,11 +10,13 @@ case $1 in
     docker run --link $last:postgres \
                --name $name \
                -p 127.0.0.1:8080:5000 \
+               -v `pwd`/../stage1/ielex2:/ielex2 \
                -d $image
   ;;
   *)
     docker run --link $last:postgres \
                --name $name \
+               -v `pwd`/../stage1/ielex2:/ielex2 \
                -d $image
   ;;
 esac
