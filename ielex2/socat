@@ -1,4 +1,0 @@
-#!/bin/sh
-# This is a short script to provide the testing environment via network.
-# Be aware that providing the website with debug=True is interesting from a security perspective.
-socat -d -d tcp-listen:8001,reuseaddr,fork tcp:localhost:8000
