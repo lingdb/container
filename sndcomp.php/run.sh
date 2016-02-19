@@ -10,9 +10,21 @@ name="lingdb_sndcomp_php_$(date -I)_$(pwgen 5 1)"
 if [ -z "$last" ]; then
   echo "Not starting $image because lingdb_mariadb isn't running."
 else
-  echo "Running $image against $last…"
-  docker run --link $last:mariadb \
-             --name $name \
-             -v `pwd`/sound:/var/www/html/sound \
-             -d $image
+  case $1 in
+    test)
+      echo "Testing $image against $last…"
+      docker run --link $last:mariadb \
+                 --name $name \
+                 -v `pwd`/../sndcomp.php/src:/var/www/html \
+                 -v `pwd`/sound:/var/www/html/sound \
+                 -d $image
+    ;;
+    *)
+      echo "Running $image against $last…"
+      docker run --link $last:mariadb \
+                 --name $name \
+                 -v `pwd`/sound:/var/www/html/sound \
+                 -d $image
+    ;;
+  esac
 fi
