@@ -3,7 +3,7 @@ FROM node:latest
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
 LABEL lingdb="ielex2_stage0" \
-      version="1.2.0" \
+      version="1.3.0" \
       documentation="https://github.com/lingdb/container/wiki/ielex2"
 
 RUN apt-get update \
@@ -20,7 +20,7 @@ RUN apt-get update \
     vim \
     less \
     git \
- && npm install --global bower \
+ && npm install --global bower grunt-cli \
  && git config --global url."https://".insteadOf git://
 
 COPY configIELex2.sh /
