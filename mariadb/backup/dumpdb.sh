@@ -1,6 +1,6 @@
 #!/bin/bash
 # Name to use for the new database dump:
-secret="<SECRET>"
+secret="$MYSQL_ROOT_PASSWORD"
 cd /backup
 while true; do
   name=$(date -I)
