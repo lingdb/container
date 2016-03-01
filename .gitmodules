@@ -2,5 +2,5 @@
 	path = sndcomp/soundcomparisons
 	url = https://github.com/lingdb/soundcomparisons
 [submodule "ielex2/stage1/ielex2"]
-	path = ielex2/stage1/ielex2
+	path = ielex2/stage1/CoBL
 	url = https://github.com/lingdb/IELex2-CognaC
