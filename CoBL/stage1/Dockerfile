@@ -2,9 +2,9 @@ FROM node:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
-LABEL lingdb="ielex2_stage0" \
-      version="1.3.0" \
-      documentation="https://github.com/lingdb/container/wiki/ielex2"
+LABEL lingdb="cobl_stage0" \
+      version="1.4.0" \
+      documentation="https://github.com/lingdb/container/wiki/cobl"
 
 RUN apt-get update \
  && apt-get install -y \

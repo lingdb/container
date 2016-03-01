@@ -1,4 +1,4 @@
 #!/bin/bash
-dir="/ielex2"
+dir="/CoBL"
 cd $dir
 python2 manage.py runserver 0.0.0.0:5000

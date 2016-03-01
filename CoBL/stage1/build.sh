@@ -4,7 +4,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 source ../../secrets/secrets.sh
 # Modifying config:
-dir="./ielex2"
+dir="./CoBL"
 echo "Editing …ielex/local_settings.py"
 file="$dir/ielex/local_settings.py"
 if [ ! -f $file ]; then
@@ -19,14 +19,14 @@ if [ ! -f $file ]; then
   sed -i.bak "s/STATIC_ROOT = .\"/STATIC_ROOT = \"ielex\/static\/\"/" $file
   secret=$(pwgen 32 1)
   sed -i.bak "s/SECRET_KEY = \"<++>\"/SECRET_KEY = \"$secret\"/" $file
-  sed -i.bak "s/project_long_name = u\"Test Lexical Cognacy Database\"/project_long_name = u\"IELex 2\"/" $file
-  sed -i.bak "s/project_short_name = u\"TestLex\"/project_short_name = u\"IELex 2\"/" $file
-  sed -i.bak "s/project_description = u\"\"\"Description for the front page\"\"\"/project_description = u\"\"\"Welcome to the IELex 2 website.\"\"\"/" $file
+  sed -i.bak "s/project_long_name = u\"Test Lexical Cognacy Database\"/project_long_name = u\"CoBL\"/" $file
+  sed -i.bak "s/project_short_name = u\"TestLex\"/project_short_name = u\"CoBL\"/" $file
+  sed -i.bak "s/project_description = u\"\"\"Description for the front page\"\"\"/project_description = u\"\"\"Welcome to the CoBL website.\"\"\"/" $file
   rm $file.bak
 fi
 # Building image:
 echo "Starting build…"
-image="lingdb/ielex2_stage0"
+image="lingdb/cobl_stage0"
 tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
 docker build -t $image:$tag .
 docker tag -f $image:$tag $image:latest

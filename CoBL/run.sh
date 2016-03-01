@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "Forwarding ielex2 startup to stage2."
+echo "Forwarding CoBL startup to stage2."
 (cd stage2 && ./run.sh)

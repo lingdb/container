@@ -1,5 +1,5 @@
 #!/bin/bash
-dir="/ielex2"
+dir="/CoBL"
 echo "Installing REQUIREMENTS"
 cd $dir
 pip install -r REQUIREMENTS

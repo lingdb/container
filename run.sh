@@ -15,5 +15,5 @@ echo "Starting backup containers…"
 
 echo "Starting web apps…"
 (cd sndcomp.php && ./run.sh)
-(cd ielex2 && ./run.sh)
+(cd CoBL && ./run.sh)
 (cd nginx && ./run.sh)
