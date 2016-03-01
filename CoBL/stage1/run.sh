@@ -6,7 +6,7 @@ name="lingdb_cobl_stage0_$(date -I)_$(pwgen 5 1)"
 echo "Running $image against $last…"
 docker run --link $last:postgres \
            --name $name \
-           -v `pwd`/ielex2:/ielex2 \
+           -v `pwd`/CoBL:/CoBL \
            -it $image
 echo "Committing $name as stage1…"
 stage="lingdb/cobl_stage1"

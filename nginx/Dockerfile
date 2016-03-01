@@ -3,7 +3,7 @@ FROM nginx:1.9.7
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
 LABEL lingdb="nginx" \
-      version="1.1.2" \
+      version="1.2.0" \
       documentation="https://github.com/lingdb/container/wiki/nginx"
 
 # To prevent DNS floods:

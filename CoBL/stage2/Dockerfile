@@ -1,4 +1,4 @@
-FROM lingdb/ielex2_stage1:latest
+FROM lingdb/cobl_stage1:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
