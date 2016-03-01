@@ -34,6 +34,4 @@ if [ ! -f src/query/.htaccess ]; then
 fi
 # Building image:
 image="lingdb/sndcomp.php"
-tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
-docker build -t $image:$tag .
-docker tag -f $image:$tag $image:latest
+docker build -t $image:latest .

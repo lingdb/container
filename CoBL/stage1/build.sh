@@ -27,6 +27,4 @@ fi
 # Building image:
 echo "Starting build…"
 image="lingdb/cobl_stage0"
-tag=$(grep version Dockerfile | grep -Po "\"[^\"]+\"" | sed -e "s/\"//g")
-docker build -t $image:$tag .
-docker tag -f $image:$tag $image:latest
+docker build -t $image:latest .
