@@ -4,3 +4,6 @@
 [submodule "CoBL/stage1/CoBL"]
 	path = CoBL/stage1/CoBL
 	url = https://github.com/lingdb/CoBL
+[submodule "sndcomp.php/src"]
+	path = sndcomp.php/src
+	url = https://github.com/lingdb/Sound-Comparisons
