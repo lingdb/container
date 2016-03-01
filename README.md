@@ -24,5 +24,5 @@ For information about necessary files and container specific configuration pleas
 * [mariadb](../../wiki/mariadb)
 * [postgres](../../wiki/postgres)
 * [sndcomp](../../wiki/sndcomp)
-* [ielex2](../../wiki/ielex2)
+* [CoBL](../../wiki/cobl)
 * [nginx](../../wiki/nginx)
