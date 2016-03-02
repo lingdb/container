@@ -1,5 +1,4 @@
 build.sh
 run.sh
 *.sql
-IELexDump
 *.sql.bz2

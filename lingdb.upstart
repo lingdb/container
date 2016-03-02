@@ -11,4 +11,4 @@ stop on runlevel [016]
 
 chdir /srv/container
 
-exec /bin/bash ./dockerception/run.sh ./run.sh
+exec /bin/bash run.sh

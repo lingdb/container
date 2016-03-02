@@ -4,10 +4,8 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 (./pull.sh)
 # Building containers…
-echo "docker-compose build…"
-docker-compose build
-echo "Running custom builds…"
-containers="mariadb/create postgres/create sndcomp.php CoBL"
+echo "Getting containers ready…"
+containers="mariadb mariadb/create mariadb/backup postgres/create postgres/backup sndcomp.php CoBL nginx"
 for cont in $containers; do
   echo "Now building $cont"
   # https://stackoverflow.com/a/786515/448591
