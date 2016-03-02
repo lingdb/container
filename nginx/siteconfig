@@ -35,6 +35,7 @@ server {
   # IPv{4,6} listen on port 80:
   listen 80 default_server;
   listen [::]:80 default_server;
+  server_name cobl.info www.cobl.info;
 
   # Serving static files for CoBL:
   location /ielex/static/ {
