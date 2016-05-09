@@ -23,6 +23,11 @@ RUN apt-get update \
  && npm install --global bower grunt-cli \
  && git config --global url."https://".insteadOf git://
 
+# Installing pip dependencies:
+COPY CoBL/REQUIREMENTS /REQUIREMENTS
+RUN pip install -r /REQUIREMENTS \
+ && rm /REQUIREMENTS
+
 COPY configIELex2.sh /
 RUN chmod u+x /configIELex2.sh
 
