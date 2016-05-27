@@ -12,6 +12,8 @@ RUN docker-php-ext-install mysqli \
   && apt-get install -y git \
   && rm -rf /var/lib/apt/lists/*
 
+COPY php.ini /usr/local/etc/php/
+
 COPY src/ /var/www/html
 
 RUN chmod -R 777 /var/www/html/export/download
