@@ -23,7 +23,7 @@ else
                    -v `pwd`/../sndcomp.php/src:/var/www/html \
                    -v `pwd`/sound:/var/www/html/sound \
                    -d $image
-        current=$(docker ps -f label=lingdb=sndcomp.php -f status=running -q)
+        current=$(docker ps -f label=lingdb=sndcomp.php -f status=running -n=1 -q)
         docker exec -it $current /usr/local/bin/php -f /var/www/html/script/generateOffline.php
       fi
     ;;
