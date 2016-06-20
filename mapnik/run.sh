@@ -2,8 +2,8 @@
 if [ ! -d "mapbox-studio-osm-bright.tm2" ]; then
   git clone https://github.com/mapbox/mapbox-studio-osm-bright.tm2.git
 fi
-if [ ! -f "planet_z0-z5.mbtiles" ]; then
-  wget -c "https://osm2vectortiles-downloads.os.zhdk.cloud.switch.ch/v2.0/planet_z0-z5.mbtiles"
+if [ ! -f "planet_z0-z8.mbtiles" ]; then
+  wget -c "https://osm2vectortiles-downloads.os.zhdk.cloud.switch.ch/v2.0/planet_z0-z8.mbtiles"
 fi
 docker run -v $(pwd):/data  \
            -l lingdb=mapnik \
