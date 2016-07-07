@@ -9,4 +9,4 @@ echo "Running $image against $last…"
 docker run --link $last:postgres \
            -v `pwd`:/create \
            -e PGPASSWORD=$secretPostgreSQL \
-           -d $image
+           --rm -it $image
