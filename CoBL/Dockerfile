@@ -2,8 +2,8 @@ FROM node:latest
 
 MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
 
-LABEL lingdb="cobl_stage0" \
-      version="1.4.0" \
+LABEL lingdb="cobl" \
+      version="1.5.0" \
       documentation="https://github.com/lingdb/container/wiki/cobl"
 
 RUN apt-get update \
@@ -28,7 +28,24 @@ COPY CoBL/REQUIREMENTS /REQUIREMENTS
 RUN pip install -r /REQUIREMENTS \
  && rm /REQUIREMENTS
 
-COPY configIELex2.sh /
-RUN chmod u+x /configIELex2.sh
+# Installing {npm,bower} dependencies:
+COPY CoBL/static /build_static
+WORKDIR /build_static
+RUN npm install \
+ && bower install --allow-root ./bower.json \
+ && grunt
 
-ENTRYPOINT /configIELex2.sh
+# Readying CoBL directory:
+COPY CoBL /CoBL
+RUN rm -rf /CoBL/static \
+ && mv /build_static /CoBL/static
+
+# Getting ready to run:
+WORKDIR /CoBL
+EXPOSE 5000
+RUN echo "#!/bin/bash\n\
+python manage.py migrate\n\
+python manage.py runserver 0.0.0.0:5000\
+" > /entrypoint.sh \
+ && chmod a+x /entrypoint.sh
+ENTRYPOINT /entrypoint.sh
