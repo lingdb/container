@@ -45,7 +45,7 @@ WORKDIR /CoBL
 EXPOSE 5000
 RUN echo "#!/bin/bash\n\
 python manage.py migrate\n\
-python manage.py runserver 0.0.0.0:5000\
+gunicorn --threads 4 --bind=$(hostname -i):5000 wsgi:application\n\
 " > /entrypoint.sh \
  && chmod a+x /entrypoint.sh
 ENTRYPOINT /entrypoint.sh
