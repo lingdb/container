@@ -1,3 +1,5 @@
 #!/bin/bash
 python manage.py migrate
-gunicorn --workers 8 --bind=$(hostname -i):5000 wsgi:application
+pcount=$(grep -c "^processor" /proc/cpuinfo)
+wcount=$(python -c "print($pcount * 2 + 1)")
+gunicorn --workers $wcount --bind=$(hostname -i):5000 wsgi:application
