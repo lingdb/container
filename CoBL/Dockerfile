@@ -43,9 +43,6 @@ RUN rm -rf /CoBL/static \
 # Getting ready to run:
 WORKDIR /CoBL
 EXPOSE 5000
-RUN echo "#!/bin/bash\n\
-python manage.py migrate\n\
-gunicorn --threads 4 --bind=$(hostname -i):5000 wsgi:application\n\
-" > /entrypoint.sh \
- && chmod a+x /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
 ENTRYPOINT /entrypoint.sh
