@@ -8,5 +8,6 @@ if [ ! -f $file ]; then
   touch $file
   echo "secretMariaDB=\"$(pwgen 16 1)\"" >> $file
   echo "secretPostgreSQL=\"$(pwgen 16 1)\"" >> $file
+  echo "djangoSecret=\"$(pwgen 32 1)\"" >> $file
 fi
 source $file
