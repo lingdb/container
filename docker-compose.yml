@@ -58,6 +58,19 @@ services:
     network_mode: "bridge"
     restart: unless-stopped
 
+  postgres_create:
+    build: ./postgres/create
+    image: lingdb/postgres_create
+    depends_on:
+     - postgres
+    links:
+     - postgres
+    environment:
+      PGPASSWORD: '${POSTGRES_PASSWORD}'
+    volumes:
+     - ${DOCKER_BASE}/postgres/create:/create
+    network_mode: "bridge"
+
   sndcomp:
     build: ./sndcomp.php
     image: lingdb/sndcomp.php
@@ -90,3 +103,16 @@ services:
      - ${DOCKER_BASE}/mariadb/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
+
+  mariadb_create:
+    build: ./mariadb/create
+    image: lingdb/mariadb_create
+    depends_on:
+     - mariadb
+    links:
+     - mariadb:mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+    volumes:
+     - ${DOCKER_BASE}/mariadb/create:/create
+    network_mode: "bridge"
