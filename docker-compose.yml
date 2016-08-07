@@ -4,9 +4,9 @@ version: '2'
 services:
 
   nginx:
+    container_name: lingdb_nginx
     build: ./nginx
     image: lingdb/nginx
-    network_mode: "bridge"
     depends_on:
      - cobl
      - sndcomp
@@ -22,6 +22,7 @@ services:
     restart: unless-stopped
 
   cobl:
+    container_name: lingdb_cobl
     build: ./CoBL
     image: lingdb/cobl
     depends_on:
@@ -36,6 +37,7 @@ services:
     restart: unless-stopped
 
   postgres:
+    container_name: lingdb_postgres
     build: ./postgres
     image: lingdb/postgres
     environment:
@@ -45,6 +47,7 @@ services:
     restart: unless-stopped
 
   postgres_backup:
+    container_name: lingdb_postgres_backup
     build: ./postgres/backup
     image: lingdb/postgres_backup
     depends_on:
@@ -59,6 +62,7 @@ services:
     restart: unless-stopped
 
   postgres_create:
+    container_name: lingdb_postgres_create
     build: ./postgres/create
     image: lingdb/postgres_create
     depends_on:
@@ -72,6 +76,7 @@ services:
     network_mode: "bridge"
 
   sndcomp:
+    container_name: lingdb_sndcomp
     build: ./sndcomp.php
     image: lingdb/sndcomp.php
     depends_on:
@@ -82,6 +87,7 @@ services:
     restart: unless-stopped
 
   mariadb:
+    container_name: lingdb_mariadb
     build: ./mariadb
     image: lingdb/mariadb
     environment:
@@ -91,6 +97,7 @@ services:
     restart: unless-stopped
 
   mariadb_backup:
+    container_name: lingdb_mariadb_backup
     build: ./mariadb/backup
     image: lingdb/mariadb_backup
     depends_on:
@@ -105,6 +112,7 @@ services:
     restart: unless-stopped
 
   mariadb_create:
+    container_name: lingdb_mariadb_create
     build: ./mariadb/create
     image: lingdb/mariadb_create
     depends_on:
