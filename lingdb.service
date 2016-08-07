@@ -1,0 +1,8 @@
+[Unit]
+Description=Run /srv/container/run.sh a single time.
+
+[Service]
+Type=oneshot
+ExecStart=/srv/container/run.sh
+User=root
+Group=systemd-journal
