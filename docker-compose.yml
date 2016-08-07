@@ -33,6 +33,7 @@ services:
       - postgres
     environment:
       DJANGO_SECRET: '${DJANGO_SECRET}'
+      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
     volumes:
        - /tmp/ielexStatic:/copyStatic
     network_mode: "bridge"
