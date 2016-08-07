@@ -40,12 +40,6 @@ COPY CoBL /CoBL
 RUN rm -rf /CoBL/static \
  && mv /build_static /CoBL/static
 
-# Making sure we have a local_settings.py:
-COPY initSettings.sh /
-RUN chmod a+x /initSettings.sh \
- && /initSettings.sh \
- && rm /initSettings.sh
-
 # Getting ready to run:
 WORKDIR /CoBL
 EXPOSE 5000
