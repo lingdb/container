@@ -20,6 +20,8 @@ services:
       - 80:80
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   cobl:
     container_name: lingdb_cobl
@@ -35,6 +37,8 @@ services:
        - /tmp/ielexStatic:/copyStatic
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   postgres:
     container_name: lingdb_postgres
@@ -45,6 +49,8 @@ services:
       POSTGRES_USER: 'ielexuser'
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   postgres_backup:
     container_name: lingdb_postgres_backup
@@ -60,6 +66,8 @@ services:
       - ${DOCKER_BASE}/postgres/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   postgres_create:
     container_name: lingdb_postgres_create
@@ -74,6 +82,8 @@ services:
     volumes:
       - ${DOCKER_BASE}/postgres/create:/create
     network_mode: "bridge"
+    logging:
+      driver: journald
 
   sndcomp:
     container_name: lingdb_sndcomp
@@ -85,6 +95,8 @@ services:
       - mariadb
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   mariadb:
     container_name: lingdb_mariadb
@@ -95,6 +107,8 @@ services:
       MYSQL_DATABASE: 'v4'
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   mariadb_backup:
     container_name: lingdb_mariadb_backup
@@ -110,6 +124,8 @@ services:
       - ${DOCKER_BASE}/mariadb/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
+    logging:
+      driver: journald
 
   mariadb_create:
     container_name: lingdb_mariadb_create
@@ -124,3 +140,5 @@ services:
     volumes:
       - ${DOCKER_BASE}/mariadb/create:/create
     network_mode: "bridge"
+    logging:
+      driver: journald
