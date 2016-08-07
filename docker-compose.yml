@@ -8,16 +8,16 @@ services:
     build: ./nginx
     image: lingdb/nginx
     depends_on:
-     - cobl
-     - sndcomp
+      - cobl
+      - sndcomp
     links:
-     - cobl
-     - sndcomp
+      - cobl
+      - sndcomp
     volumes:
-     - ${DOCKER_BASE}/nginx/sound:/sound
-     - /tmp/ielexStatic:/ielexStatic
+      - ${DOCKER_BASE}/nginx/sound:/sound
+      - /tmp/ielexStatic:/ielexStatic
     ports:
-     - 80:80
+      - 80:80
     network_mode: "bridge"
     restart: unless-stopped
 
@@ -26,13 +26,13 @@ services:
     build: ./CoBL
     image: lingdb/cobl
     depends_on:
-     - postgres
+      - postgres
     links:
-     - postgres
+      - postgres
     environment:
       DJANGO_SECRET: '${DJANGO_SECRET}'
     volumes:
-      - /tmp/ielexStatic:/copyStatic
+       - /tmp/ielexStatic:/copyStatic
     network_mode: "bridge"
     restart: unless-stopped
 
@@ -51,13 +51,13 @@ services:
     build: ./postgres/backup
     image: lingdb/postgres_backup
     depends_on:
-     - postgres
+      - postgres
     links:
-     - postgres
+      - postgres
     environment:
       PGPASSWORD: '${POSTGRES_PASSWORD}'
     volumes:
-     - ${DOCKER_BASE}/postgres/backup:/backup
+      - ${DOCKER_BASE}/postgres/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
 
@@ -66,13 +66,13 @@ services:
     build: ./postgres/create
     image: lingdb/postgres_create
     depends_on:
-     - postgres
+      - postgres
     links:
-     - postgres
+      - postgres
     environment:
       PGPASSWORD: '${POSTGRES_PASSWORD}'
     volumes:
-     - ${DOCKER_BASE}/postgres/create:/create
+      - ${DOCKER_BASE}/postgres/create:/create
     network_mode: "bridge"
 
   sndcomp:
@@ -80,9 +80,9 @@ services:
     build: ./sndcomp.php
     image: lingdb/sndcomp.php
     depends_on:
-     - mariadb
+      - mariadb
     links:
-     - mariadb
+      - mariadb
     network_mode: "bridge"
     restart: unless-stopped
 
@@ -101,13 +101,13 @@ services:
     build: ./mariadb/backup
     image: lingdb/mariadb_backup
     depends_on:
-     - mariadb
+      - mariadb
     links:
-     - mariadb
+      - mariadb
     environment:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
     volumes:
-     - ${DOCKER_BASE}/mariadb/backup:/backup
+      - ${DOCKER_BASE}/mariadb/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
 
@@ -116,11 +116,11 @@ services:
     build: ./mariadb/create
     image: lingdb/mariadb_create
     depends_on:
-     - mariadb
+      - mariadb
     links:
-     - mariadb:mysql
+      - mariadb:mysql
     environment:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
     volumes:
-     - ${DOCKER_BASE}/mariadb/create:/create
+      - ${DOCKER_BASE}/mariadb/create:/create
     network_mode: "bridge"
