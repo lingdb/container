@@ -41,6 +41,17 @@ services:
     logging:
       driver: journald
 
+  cobl_nexus:
+    container_name: lingdb_cobl_nexus
+    build: ./CoBL/nexus
+    image: lingdb/cobl_nexus
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    network_mode: "bridge"
+    restart: unless-stopped
+
   postgres:
     container_name: lingdb_postgres
     build: ./postgres
@@ -67,8 +78,6 @@ services:
       - ${DOCKER_BASE}/postgres/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
-    logging:
-      driver: journald
 
   postgres_create:
     container_name: lingdb_postgres_create
@@ -83,8 +92,6 @@ services:
     volumes:
       - ${DOCKER_BASE}/postgres/create:/create
     network_mode: "bridge"
-    logging:
-      driver: journald
 
   sndcomp:
     container_name: lingdb_sndcomp
@@ -125,8 +132,6 @@ services:
       - ${DOCKER_BASE}/mariadb/backup:/backup
     network_mode: "bridge"
     restart: unless-stopped
-    logging:
-      driver: journald
 
   mariadb_create:
     container_name: lingdb_mariadb_create
@@ -141,5 +146,3 @@ services:
     volumes:
       - ${DOCKER_BASE}/mariadb/create:/create
     network_mode: "bridge"
-    logging:
-      driver: journald
