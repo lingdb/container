@@ -40,6 +40,9 @@ COPY CoBL /CoBL
 RUN rm -rf /CoBL/static \
  && mv /build_static /CoBL/static
 
+# Creating copyStatic:
+RUN mkdir /copyStatic
+
 # Getting ready to run:
 WORKDIR /CoBL
 EXPOSE 5000

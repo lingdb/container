@@ -10,10 +10,8 @@ sed -i.bak "s/'HOST': '',.*$/'HOST':'postgres',/" $file
 sed -i.bak "s/'PORT': '',.*$/'PORT': '5432',/" $file
 sed -i.bak "s/SECRET_KEY = \"<++>\"/SECRET_KEY = \"$DJANGO_SECRET\"/" $file
 rm $file.bak
-# Copy static files if requested:
-if [ -d /copyStatic ]; then
-  cp -rf /CoBL/static/* /copyStatic/
-fi
+# Copy static files:
+cp -rf /CoBL/static/* /copyStatic/
 # Migrate database:
 python manage.py migrate
 # Start gunicorn:
