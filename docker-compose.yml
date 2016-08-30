@@ -106,6 +106,22 @@ services:
     logging:
       driver: journald
 
+  # Export needs link against mapnik
+  sndcomp_export:
+    container_name: lingdb_sndcomp_export
+    build: ./sndcomp.php
+    image: lingdb/sndcomp.php
+    depends_on:
+      - mariadb
+      - mapnik
+    links:
+      - mariadb
+      - mapnik
+    network_mode: "bridge"
+    restart: unless-stopped
+    logging:
+      driver: journald
+
   mariadb:
     container_name: lingdb_mariadb
     build: ./mariadb
@@ -145,4 +161,13 @@ services:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
     volumes:
       - ${DOCKER_BASE}/mariadb/create:/create
+    network_mode: "bridge"
+
+  mapnik:
+    container_name: lingdb_mapnik
+    image: klokantech/tileserver-mapnik
+    labels:
+      lingdb: mapnik
+    volumes:
+      - ${DOCKER_BASE}/mapnik:/data
     network_mode: "bridge"
