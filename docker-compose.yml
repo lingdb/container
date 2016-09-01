@@ -101,6 +101,8 @@ services:
       - mariadb
     links:
       - mariadb
+    volumes:
+      - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
     network_mode: "bridge"
     restart: unless-stopped
     logging:
