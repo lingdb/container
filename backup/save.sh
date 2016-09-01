@@ -10,5 +10,5 @@ name="$(date -I).images.tar"
 echo "Creating $name…"
 docker images -f label=lingdb -q | xargs docker save -o $name
 # Removing some to keep last 2:
-echo "Keeping only 2 latest backups…"
-ls -tr *tar | head -n -2 | xargs --no-run-if-empty rm
+echo "Keeping only latest backups…"
+ls -tr *tar | head -n -1 | xargs --no-run-if-empty rm
