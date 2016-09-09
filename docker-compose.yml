@@ -108,6 +108,25 @@ services:
     logging:
       driver: journald
 
+  # Container for sndcomp development:
+  sndcomp_devel:
+    container_name: lingdb_sndcomp_devel
+    build: ./sndcomp.php
+    image: lingdb/sndcomp.php
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+    volumes:
+      - ${DOCKER_BASE}/sndcomp.php/src:/var/www/html
+      - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
+    network_mode: "bridge"
+    ports:
+      - 8000:80
+    restart: "no"
+    logging:
+      driver: none
+
   # Export needs link against mapnik
   sndcomp_export:
     container_name: lingdb_sndcomp_export
@@ -119,10 +138,12 @@ services:
     links:
       - mariadb
       - mapnik
+    volumes:
+      - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
     network_mode: "bridge"
-    restart: unless-stopped
+    restart: "no"
     logging:
-      driver: journald
+      driver: none
 
   mariadb:
     container_name: lingdb_mariadb
