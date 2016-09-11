@@ -2,6 +2,8 @@
 # Chdir to file location:
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
+# Removing current backups
+rm *.images.tar
 # Clenaing docker containers and images:
 docker ps -f status=exited -f label=lingdb -q | xargs docker rm
 docker images -f dangling=true -f label=lingdb -q | xargs docker rmi
@@ -9,6 +11,3 @@ docker images -f dangling=true -f label=lingdb -q | xargs docker rmi
 name="$(date -I).images.tar"
 echo "Creating $name…"
 docker images -f label=lingdb -q | xargs docker save -o $name
-# Removing some to keep last 2:
-echo "Keeping only latest backups…"
-ls -tr *tar | head -n -1 | xargs --no-run-if-empty rm
