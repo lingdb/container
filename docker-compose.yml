@@ -124,8 +124,6 @@ services:
     ports:
       - 8000:80
     restart: "no"
-    logging:
-      driver: none
 
   # Export needs link against mapnik
   sndcomp_export:
@@ -142,8 +140,6 @@ services:
       - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
     network_mode: "bridge"
     restart: "no"
-    logging:
-      driver: none
 
   mariadb:
     container_name: lingdb_mariadb
