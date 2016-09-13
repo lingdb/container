@@ -103,6 +103,8 @@ services:
       - mariadb
     volumes:
       - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
+    environment:
+      DEPLOYED: 'true'
     network_mode: "bridge"
     restart: unless-stopped
     logging:
@@ -139,6 +141,8 @@ services:
     volumes:
       - ${DOCKER_BASE}/sndcomp.php/src:/var/www/html
       - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
+    environment:
+      DEPLOYED: 'true'
     network_mode: "bridge"
     restart: "no"
 
