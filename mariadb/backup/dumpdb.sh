@@ -7,7 +7,7 @@ while true; do
   # Creating the dump:
   echo "SET AUTOCOMMIT=0;" > $name.sql
   echo "SET FOREIGN_KEY_CHECKS=0;" >> $name.sql
-  mysqldump -hmysql -uroot -p$MYSQL_ROOT_PASSWORD --routines --single-transaction v4 | \
+  mysqldump -hmariadb -uroot -p$MYSQL_ROOT_PASSWORD --routines --single-transaction v4 | \
     sed -e 's/DEFINER=[^*]*\*/\*/' | \
     sed -e 's/DEFINER=.*PROCEDURE/PROCEDURE/' >> $name.sql
   echo "SET FOREIGN_KEY_CHECKS=1;" >> $name.sql
