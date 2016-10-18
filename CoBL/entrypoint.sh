@@ -2,8 +2,7 @@
 # Setting up local_settings.py:
 file="/CoBL/ielex/local_settings.py"
 cp $file.dist $file
-sed -i.bak "s/'ENGINE': 'django.db.backends.sqlite3',/'ENGINE': 'django.db.backends.postgresql_psycopg2',/" $file
-sed -i.bak "s/'NAME': os.path.join(os.path.abspath(os.path.dirname(__file__)), 'db.sqlite3'),/'NAME': 'ielexdb201510',/" $file
+sed -i.bak "s/'NAME': 'CoBL',/'NAME': 'ielexdb201510',/" $file
 sed -i.bak "s/'USER': '',.*$/'USER':'ielexuser',/" $file
 sed -i.bak "s/'PASSWORD': '',.*$/'PASSWORD':'$POSTGRES_PASSWORD',/" $file
 sed -i.bak "s/'HOST': '',.*$/'HOST':'postgres',/" $file
