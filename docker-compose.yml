@@ -32,8 +32,13 @@ services:
     links:
       - postgres
     environment:
-      DJANGO_SECRET: '${DJANGO_SECRET}'
-      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
+      SECRET_KEY: '${DJANGO_SECRET}'
+      DB_NAME: 'ielexdb201510'
+      DB_USER: 'ielexuser'
+      DB_PASSWORD: '${POSTGRES_PASSWORD}'
+      DB_HOST: 'postgres'
+      DB_PORT: '5432'
+      DEBUG: 'False'
     volumes:
        - /tmp/ielexStatic:/copyStatic
     network_mode: "bridge"
@@ -51,6 +56,26 @@ services:
       - postgres
     network_mode: "bridge"
     restart: unless-stopped
+
+  cobl_debug:
+    container_name: lingdb_cobl_debug
+    build: ./CoBL/debug
+    image: lingdb/cobl_debug
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    environment:
+      SECRET_KEY: '${DJANGO_SECRET}'
+      DB_NAME: 'ielexdb201510'
+      DB_USER: 'ielexuser'
+      DB_PASSWORD: '${POSTGRES_PASSWORD}'
+      DB_HOST: 'postgres'
+      DB_PORT: '5432'
+      DEBUG: 'True'
+    network_mode: "bridge"
+    ports:
+      - 80:5000
 
   postgres:
     container_name: lingdb_postgres

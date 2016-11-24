@@ -43,6 +43,9 @@ RUN rm -rf /CoBL/static \
 # Creating copyStatic:
 RUN mkdir /copyStatic
 
+# local_settings.py
+RUN cp /CoBL/ielex/local_settings.py.dist /CoBL/ielex/local_settings.py
+
 # Getting ready to run:
 WORKDIR /CoBL
 EXPOSE 5000
