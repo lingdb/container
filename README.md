@@ -21,7 +21,7 @@ To do so these steps are necessary:
 ## Run CoBL standalone:
 To run a CoBL instance without a database dump and without the nginx and sndcomp dependencies on the side:
 
-1. Install docker and docker-compose
+1. Install `docker` and `docker-compose` and `pwgen`. `pwgen` will be used by `secrets/secrets.sh` which is called by`withCompose.sh` to generate database passwords.
 2. Clone this repository
 3. Issue `git submodule init` and `git submodule update --recursive` to have all repository data checked out correctly.
 4. Use the `pull.sh` and `build.sh` scripts to ensure containers are available and up to date.
