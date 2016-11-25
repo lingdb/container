@@ -5,5 +5,5 @@ git submodule update --recursive
 ./withCompose.sh build cobl_nexus
 ./withCompose.sh up -d nginx
 ./withCompose.sh up -d cobl_nexus
-(cd backup; ./save.sh)
-
+# Backup disabled because of disk space
+# (cd backup; ./save.sh)
