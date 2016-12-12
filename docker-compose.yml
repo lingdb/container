@@ -54,6 +54,14 @@ services:
       - postgres
     links:
       - postgres
+    environment:
+      SECRET_KEY: '${DJANGO_SECRET}'
+      DB_NAME: 'ielexdb201510'
+      DB_USER: 'ielexuser'
+      DB_PASSWORD: '${POSTGRES_PASSWORD}'
+      DB_HOST: 'postgres'
+      DB_PORT: '5432'
+      DEBUG: 'False'
     network_mode: "bridge"
     restart: unless-stopped
 
