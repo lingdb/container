@@ -1,9 +1,9 @@
 FROM debian:jessie
 
-MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
+MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="sndcomp" \
-      version="1.3.0" \
+      version="1.3.1" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp"
 
 RUN apt-get update \

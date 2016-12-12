@@ -1,9 +1,9 @@
 FROM lingdb/cobl:latest
 
-MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
+MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="cobl_nexus" \
-      version="1.0.0" \
+      version="1.0.1" \
       documentation="https://github.com/lingdb/container/wiki/cobl_nexus"
 
 # Getting ready to run:

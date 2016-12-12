@@ -1,9 +1,9 @@
 FROM mariadb:latest
 
-MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
+MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="mariadb_backup" \
-      version="1.2.1" \
+      version="1.2.2" \
       documentation="https://github.com/lingdb/container/wiki/mariadb#the-mariadbbackup-container"
 
 COPY dumpdb.sh /dumpdb.sh

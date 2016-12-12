@@ -1,9 +1,9 @@
 FROM postgres:9.3.10
 
-MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
+MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="postgres_backup" \
-      version="1.1.1" \
+      version="1.1.2" \
       documentation="https://github.com/lingdb/container/wiki/postgres#the-postgresbackup-container"
 
 COPY backup.sh /

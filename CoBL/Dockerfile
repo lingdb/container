@@ -1,9 +1,9 @@
 FROM node:latest
 
-MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
+MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="cobl" \
-      version="1.5.0" \
+      version="1.5.1" \
       documentation="https://github.com/lingdb/container/wiki/cobl"
 
 RUN apt-get update \

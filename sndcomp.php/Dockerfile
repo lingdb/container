@@ -1,9 +1,9 @@
 FROM php:7.0.0-apache
 
-MAINTAINER Jakob Runge <mam09crm@studserv.uni-leipzig.de>
+MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="sndcomp.php" \
-      version="1.1.0" \
+      version="1.1.1" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp.php"
 
 RUN docker-php-ext-install mysqli \

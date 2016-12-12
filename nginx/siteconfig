@@ -18,7 +18,7 @@ client_max_body_size 10m;
 server {
   listen 80;
   listen [::]:80;
-  server_name soundcomparisons.com www.soundcomparisons.com;
+  server_name soundcomparisons.com www.soundcomparisons.com soundcomparisons.ddnss.de;
 
   # Forwarding to soundcomparisons:
   # soundcomparisons cares for its own static files,
@@ -41,7 +41,7 @@ server {
   # IPv{4,6} listen on port 80:
   listen 80 default_server;
   listen [::]:80 default_server;
-  server_name cobl.info www.cobl.info;
+  server_name cobl.info www.cobl.info cobl.ddnss.de;
 
   # Serving static files for CoBL:
   location /ielex/static/ {
