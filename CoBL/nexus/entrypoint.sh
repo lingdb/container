@@ -1,5 +1,5 @@
 #!/bin/bash
 while true; do
-  python manage.py computeNexusExport
+  python3 manage.py computeNexusExport
   sleep 1m
 done

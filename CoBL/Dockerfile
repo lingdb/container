@@ -3,7 +3,7 @@ FROM node:latest
 MAINTAINER Jakob Runge <runjak@gmail.com>
 
 LABEL lingdb="cobl" \
-      version="1.5.1" \
+      version="1.6.0" \
       documentation="https://github.com/lingdb/container/wiki/cobl"
 
 RUN apt-get update \
@@ -14,9 +14,9 @@ RUN apt-get update \
     libxml2-dev \
     libxslt-dev \
     pwgen zlib1g-dev \
-    python2.7 python2.7-dev \
-    python-pip \
-    python2.7-lxml \
+    python3 python3-dev \
+    python3-pip \
+    python3-lxml \
     vim \
     less \
     git \
@@ -25,7 +25,7 @@ RUN apt-get update \
 
 # Installing pip dependencies:
 COPY CoBL/REQUIREMENTS /REQUIREMENTS
-RUN pip install -r /REQUIREMENTS \
+RUN pip3 install -r /REQUIREMENTS \
  && rm /REQUIREMENTS
 
 # Installing {npm,bower} dependencies:
