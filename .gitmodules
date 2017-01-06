@@ -3,7 +3,7 @@
 	url = https://github.com/lingdb/soundcomparisons
 [submodule "CoBL/CoBL"]
 	path = CoBL/CoBL
-	url = https://github.com/lingdb/CoBL
+	url = https://github.com/lingdb/CoBL-public
 [submodule "sndcomp.php/src"]
 	path = sndcomp.php/src
 	url = https://github.com/lingdb/Sound-Comparisons
