@@ -213,7 +213,7 @@ services:
     depends_on:
       - mariadb
     links:
-      - mariadb:mysql
+      - mariadb
     environment:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
     volumes:
