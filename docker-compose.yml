@@ -138,6 +138,10 @@ services:
       - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
     environment:
       DEPLOYED: 'true'
+      MYSQL_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "root"
+      MYSQL_SERVER: 'mariadb'
+      MYSQL_DATABASE: 'v4'
     network_mode: "bridge"
     restart: unless-stopped
     logging:
@@ -159,6 +163,11 @@ services:
     ports:
       - 8000:80
     restart: "no"
+    environment:
+      MYSQL_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "root"
+      MYSQL_SERVER: 'mariadb'
+      MYSQL_DATABASE: 'v4'
 
   # Export needs link against mapnik
   sndcomp_export:
@@ -176,6 +185,10 @@ services:
       - ${DOCKER_BASE}/nginx/sound:/var/www/html/sound
     environment:
       DEPLOYED: 'true'
+      MYSQL_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "root"
+      MYSQL_SERVER: 'mariadb'
+      MYSQL_DATABASE: 'v4'
     network_mode: "bridge"
     restart: "no"
 
