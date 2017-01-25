@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Copy static files:
 cp -rf /CoBL/static/* /copyStatic/
 # Migrate database:

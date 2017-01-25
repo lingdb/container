@@ -4,4 +4,4 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $dir
 #(./pull.sh)
 # Building containers…
-./withCompose.sh build $@
+./withCompose.sh build --no-cache $@

@@ -1,4 +1,4 @@
-FROM node:latest
+FROM alpine:latest
 
 MAINTAINER Jakob Runge <runjak@gmail.com>
 
@@ -6,26 +6,23 @@ LABEL lingdb="cobl" \
       version="1.6.0" \
       documentation="https://github.com/lingdb/container/wiki/cobl"
 
-RUN apt-get update \
- && apt-get install -y \
-    build-essential \
-    postgresql-server-dev-all \
-    libxml2 \
-    libxml2-dev \
-    libxslt-dev \
-    pwgen zlib1g-dev \
+RUN apk update \
+ && apk add \
     python3 python3-dev \
-    python3-pip \
-    python3-lxml \
+    postgresql-dev \
+    build-base \
     vim \
     less \
     git \
+    nodejs \
+ && rm /var/cache/apk/APKINDEX*tar.gz \
  && npm install --global bower grunt-cli \
- && git config --global url."https://".insteadOf git://
+ && git config --global url."https://".insteadOf "git://"
 
 # Installing pip dependencies:
 COPY CoBL/REQUIREMENTS /REQUIREMENTS
-RUN pip3 install -r /REQUIREMENTS \
+RUN pip3 install --upgrade pip \
+ && pip3 install -r /REQUIREMENTS \
  && rm /REQUIREMENTS
 
 # Installing {npm,bower} dependencies:
