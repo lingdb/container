@@ -1,7 +1,5 @@
 FROM php:7-apache
 
-MAINTAINER Jakob Runge <runjak@gmail.com>
-
 LABEL lingdb="sndcomp.php" \
       version="1.1.1" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp.php"

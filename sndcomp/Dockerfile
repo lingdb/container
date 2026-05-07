@@ -1,7 +1,5 @@
 FROM debian:jessie
 
-MAINTAINER Jakob Runge <runjak@gmail.com>
-
 LABEL lingdb="sndcomp" \
       version="1.3.1" \
       documentation="https://github.com/lingdb/container/wiki/sndcomp"

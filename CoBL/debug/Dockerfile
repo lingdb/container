@@ -1,7 +1,5 @@
 FROM lingdb/cobl
 
-MAINTAINER Jakob Runge <runjak@gmail.com>
-
 LABEL lingdb="cobl_debug" \
       version="1.1.0" \
       documentation="https://github.com/lingdb/container/wiki/cobl_debug"

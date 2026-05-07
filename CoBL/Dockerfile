@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-MAINTAINER Jakob Runge <runjak@gmail.com>
-
 LABEL lingdb="cobl" \
       version="1.6.0" \
       documentation="https://github.com/lingdb/container/wiki/cobl"

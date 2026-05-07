@@ -1,7 +1,5 @@
 FROM mariadb:latest
 
-MAINTAINER Jakob Runge <runjak@gmail.com>
-
 LABEL lingdb="mariadb_create" \
       version="1.2.2" \
       documentation="https://github.com/lingdb/container/wiki/mariadb#the-mariadbcreate-container"

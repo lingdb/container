@@ -1,7 +1,5 @@
 FROM nginx:1.9.7
 
-MAINTAINER Jakob Runge <runjak@gmail.com>
-
 LABEL lingdb="nginx" \
       version="1.3.1" \
       documentation="https://github.com/lingdb/container/wiki/nginx"
